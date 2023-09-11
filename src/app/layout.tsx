@@ -6,8 +6,12 @@ import "styles/global.css";
 
 const poppins = Poppins({ subsets: ["latin"], weight: ["400", "700"] });
 export const metadata: Metadata = {
-  title: "Ramon Trovão",
-  description: "Desenvolvedor",
+  title: {
+    template: "%s | ramon dev </>",
+    default: "início | ramon dev </>",
+  },
+  description:
+    "desenvolvedor front-end apaixonado por tecnologia desde pequeno! :)",
 };
 
 export default function RootLayout({

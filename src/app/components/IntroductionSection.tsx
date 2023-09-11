@@ -19,13 +19,13 @@ export const IntroductionSection = () => {
           </span>
         </div>
 
-        <div className="relative">
+        <div className="relative overflow-hidden">
           <h1 className="text-gray-200 relative z-20 text-5xl font-bold max-w-2xl text-center">
             desenvolvo as melhores interfaces para o seu negócio
           </h1>
 
           <Image
-            className="absolute top-7 z-10"
+            className="absolute top-7 left-5 z-10 max-w-xs"
             src={line}
             width={375}
             height={40}
