@@ -16,7 +16,7 @@ export const Header = () => {
             alt=""
             width={400}
             height={650}
-            className="max-w-[2.5rem]"
+            className="max-w-[2rem]"
           />
         </a>
 
