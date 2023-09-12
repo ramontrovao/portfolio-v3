@@ -14,7 +14,7 @@ export type TExperiences = {
 
 export type TTechnology = {
   name: string;
-  icon_svg: string;
+  iconSvg: string;
   startDate: string;
 };
 
@@ -28,7 +28,7 @@ export type THygraphData = {
   page: {
     name: string;
     headline: string;
-    about_picture: string;
+    aboutPicture: string;
     aboutme: {
       html: string;
     };
