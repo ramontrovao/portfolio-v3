@@ -1,7 +1,15 @@
 import Image from "next/image";
 import line from "assets/line.svg";
 
-export const IntroductionSection = () => {
+interface IIntroductionSectionProps {
+  name: string;
+  headline: string;
+}
+
+export const IntroductionSection = ({
+  name,
+  headline,
+}: IIntroductionSectionProps) => {
   return (
     <section className="bg-zinc-950 w-full min-h-screen">
       <div className="max-w-6xl w-full m-auto px-4 py-24 flex gap-8 flex-col justify-center items-center">
@@ -14,14 +22,12 @@ export const IntroductionSection = () => {
             className="rounded-full max-w-[12.5rem]"
           />
 
-          <span className="text-gray-300 text-xl">
-            olá, sou ramon trovão :)
-          </span>
+          <span className="text-gray-300 text-xl">olá, sou {name} :)</span>
         </div>
 
         <div className="relative overflow-hidden">
           <h1 className="text-gray-200 relative z-20 text-5xl font-bold max-w-2xl text-center">
-            desenvolvo as melhores interfaces para o seu negócio
+            {headline}
           </h1>
 
           <Image

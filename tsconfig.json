@@ -22,7 +22,9 @@
     "paths": {
       "fragments/*": ["fragments/*"],
       "assets/*": ["assets/*"],
-      "styles/*": ["styles/*"]
+      "styles/*": ["styles/*"],
+      "utils/*": ["utils/*"],
+      "types/*": ["types/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
