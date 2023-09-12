@@ -1,4 +1,4 @@
-import { THygraphData } from "types/hygraph-data";
+import { THygraphData } from "types/THygraphData";
 
 export const fetchHygraphQuery = async (
   query: string

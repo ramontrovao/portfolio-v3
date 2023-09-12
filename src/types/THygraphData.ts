@@ -25,17 +25,19 @@ type TSocialMedia = {
 };
 
 export type THygraphData = {
-  name: string;
-  headline: string;
-  about_picture: string;
-  aboutme: {
-    html: string;
-  };
-  educations: TEducation[];
-  experiencies: TExperiences[];
-  technologies: TTechnology[];
-  info: {
-    email: string;
-    socialMedias: TSocialMedia[];
+  page: {
+    name: string;
+    headline: string;
+    about_picture: string;
+    aboutme: {
+      html: string;
+    };
+    educations: TEducation[];
+    experiencies: TExperiences[];
+    technologies: TTechnology[];
+    info: {
+      email: string;
+      socialMedias: TSocialMedia[];
+    };
   };
 };

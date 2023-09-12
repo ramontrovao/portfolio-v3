@@ -1,4 +1,4 @@
-import { fetchHygraphQuery } from "utils/fetch-hygraph-query";
+import { fetchHygraphQuery } from "utils/fetchHygraphQuery";
 import { IntroductionSection } from "./components/IntroductionSection";
 
 const getHomeData = async () => {
@@ -45,13 +45,16 @@ const getHomeData = async () => {
 };
 
 export default async function Home() {
-  const res = await getHomeData();
+  const { page } = await getHomeData();
 
-  console.log(res);
+  const introductionProps = {
+    name: page.name,
+    headline: page.headline,
+  };
 
   return (
     <main>
-      <IntroductionSection />
+      <IntroductionSection {...introductionProps} />
     </main>
   );
 }
