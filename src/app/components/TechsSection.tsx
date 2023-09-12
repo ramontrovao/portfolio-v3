@@ -1,3 +1,6 @@
+import { formatDistanceToNowStrict } from "date-fns";
+import ptBR from "date-fns/locale/pt-BR";
+
 import { Card } from "fragments/Card";
 import { TTechnology } from "types/THygraphData";
 
@@ -15,11 +18,20 @@ export const TechsSection = ({ techs }: ITechsSection) => {
           </h2>
         </header>
 
-        <main className="flex flex-col justify-center items-center gap-4">
+        <main className="w-full grid grid-cols-2 place-items-center gap-4">
           {techs.map((tech) => (
             <Card
               cardName={tech.name}
-              cardDescription={tech.startDate ?? "possuo conhecimentos"}
+              cardDescription={
+                tech.startDate
+                  ? `cerca de ${formatDistanceToNowStrict(
+                      new Date(tech.startDate),
+                      {
+                        locale: ptBR,
+                      }
+                    )} de experiência`
+                  : "já usei em alguns projetos pessoais"
+              }
               key={tech.icon_svg}
             />
           ))}
