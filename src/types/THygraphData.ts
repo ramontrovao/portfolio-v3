@@ -28,7 +28,9 @@ export type THygraphData = {
   page: {
     name: string;
     headline: string;
-    aboutPicture: string;
+    aboutPicture: {
+      url: string;
+    };
     aboutme: {
       html: string;
     };
