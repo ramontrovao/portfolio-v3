@@ -3,6 +3,7 @@ import { fetchHygraphQuery } from "utils/fetchHygraphQuery";
 import { IntroductionSection } from "./components/IntroductionSection";
 import { PortfolioSection } from "./components/PortfolioSection";
 import { TechsSection } from "./components/TechsSection";
+import { AboutMeSection } from "./components/AboutMeSection";
 
 const getHomeData = async () => {
   const query = `
@@ -11,7 +12,7 @@ const getHomeData = async () => {
       name
       headline
       aboutme {
-        html
+        raw
       }
       educations {
         name
@@ -43,6 +44,7 @@ const getHomeData = async () => {
       }
     }
   }
+  
   `;
   return fetchHygraphQuery(query);
 };
@@ -59,11 +61,17 @@ export default async function Home() {
     techs: page.technologies,
   };
 
+  const aboutMeProps = {
+    image: page.aboutPicture.url,
+    text: page.aboutme.raw,
+  };
+
   return (
     <main>
       <IntroductionSection {...introductionProps} />
       <PortfolioSection />
       <TechsSection {...techsProps} />
+      <AboutMeSection {...aboutMeProps} />
     </main>
   );
 }

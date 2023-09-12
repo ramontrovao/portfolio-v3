@@ -9,8 +9,6 @@ interface ITechsSection {
 }
 
 export const TechsSection = ({ techs }: ITechsSection) => {
-  console.log(techs[0]);
-
   const formatDate = (date: Date) => {
     return formatDistanceToNowStrict(date, { locale: ptBR });
   };
