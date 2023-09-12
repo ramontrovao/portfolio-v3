@@ -1,7 +1,9 @@
 import Image from "next/image";
+import Link from "next/link";
 import type { RichTextContent } from "@graphcms/rich-text-types";
 
 import { RichText } from "fragments/RichText";
+import { Button } from "fragments/Button";
 
 interface IAboutMeProps {
   image: string;
@@ -27,8 +29,12 @@ export const AboutMeSection = ({ image, text }: IAboutMeProps) => {
             alt=""
           />
 
-          <div className="text-gray-400 flex-1 font-normal text-md">
+          <div className="text-gray-400 flex flex-col gap-6 flex-1 font-normal text-md">
             <RichText content={text} />
+
+            <Link href="#contato">
+              <Button>entrar em contato!</Button>
+            </Link>
           </div>
         </main>
       </div>
