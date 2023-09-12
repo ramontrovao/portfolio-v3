@@ -1,24 +1,24 @@
-type TEducation = {
+export type TEducation = {
   name: string;
   shortDescription: string;
   startDate: string;
   endDate: string;
 };
 
-type TExperiences = {
+export type TExperiences = {
   name: string;
   shortDescription: string;
   startDate: string;
   endDate: string;
 };
 
-type TTechnology = {
+export type TTechnology = {
   name: string;
   icon_svg: string;
   startDate: string;
 };
 
-type TSocialMedia = {
+export type TSocialMedia = {
   name: string;
   url: string;
   logoSvg: string;

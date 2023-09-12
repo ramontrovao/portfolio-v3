@@ -2,6 +2,7 @@ import { fetchHygraphQuery } from "utils/fetchHygraphQuery";
 
 import { IntroductionSection } from "./components/IntroductionSection";
 import { PortfolioSection } from "./components/PortfolioSection";
+import { TechsSection } from "./components/TechsSection";
 
 const getHomeData = async () => {
   const query = `
@@ -54,10 +55,15 @@ export default async function Home() {
     headline: page.headline,
   };
 
+  const techsProps = {
+    techs: page.technologies,
+  };
+
   return (
     <main>
       <IntroductionSection {...introductionProps} />
       <PortfolioSection />
+      <TechsSection {...techsProps} />
     </main>
   );
 }
