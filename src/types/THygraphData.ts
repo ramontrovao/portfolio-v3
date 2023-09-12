@@ -1,3 +1,5 @@
+import type { RichTextContent } from "@graphcms/rich-text-types";
+
 export type TEducation = {
   name: string;
   shortDescription: string;
@@ -32,7 +34,7 @@ export type THygraphData = {
       url: string;
     };
     aboutme: {
-      html: string;
+      raw: RichTextContent;
     };
     educations: TEducation[];
     experiencies: TExperiences[];

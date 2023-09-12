@@ -12,7 +12,7 @@ const getHomeData = async () => {
       name
       headline
       aboutme {
-        html
+        raw
       }
       educations {
         name
@@ -44,6 +44,7 @@ const getHomeData = async () => {
       }
     }
   }
+  
   `;
   return fetchHygraphQuery(query);
 };
@@ -62,7 +63,7 @@ export default async function Home() {
 
   const aboutMeProps = {
     image: page.aboutPicture.url,
-    text: page.aboutme.html,
+    text: page.aboutme.raw,
   };
 
   return (

@@ -1,9 +1,11 @@
-import { Card } from "fragments/Card";
 import Image from "next/image";
+import type { RichTextContent } from "@graphcms/rich-text-types";
+
+import { RichText } from "fragments/RichText";
 
 interface IAboutMeProps {
   image: string;
-  text: string;
+  text: RichTextContent;
 }
 
 export const AboutMeSection = ({ image, text }: IAboutMeProps) => {
@@ -12,19 +14,22 @@ export const AboutMeSection = ({ image, text }: IAboutMeProps) => {
       <div className="max-w-6xl w-full m-auto p-4 flex gap-16 flex-col justify-center items-center">
         <header>
           <h2 className="text-gray-200 text-5xl font-bold max-w-2xl text-center">
-            tec-no-lo-gi-as
+            sobre-mim
           </h2>
         </header>
 
-        <main className="w-full flex flex-col justify-center items-center md:grid md:grid-cols-2 md:place-items-center gap-4">
+        <main className="relative w-full flex gap-4">
           <Image
+            className="sticky max-w-[7.5rem] max-h-[7.5rem] md:max-w-[17.5rem] md:max-h-[17.5rem] top-2 rounded-lg"
             src={image}
-            width={600}
-            height={850}
+            width={500}
+            height={500}
             alt=""
           />
 
-          <div dangerouslySetInnerHTML={{ __html: text }} />
+          <div className="text-gray-400 flex-1 font-normal text-md">
+            <RichText content={text} />
+          </div>
         </main>
       </div>
     </section>
