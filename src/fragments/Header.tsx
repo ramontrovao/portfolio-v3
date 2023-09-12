@@ -7,7 +7,7 @@ import { MagnifyingGlass } from "@phosphor-icons/react";
 export const Header = () => {
   return (
     <header className="fixed w-full flex bg-transparent">
-      <nav className="max-w-7xl w-full p-8 m-auto flex justify-between items-center">
+      <nav className="max-w-6xl w-full p-8 m-auto flex justify-between items-center">
         <a
           className="transition-all duration-300 hover:opacity-80"
           href="#">
