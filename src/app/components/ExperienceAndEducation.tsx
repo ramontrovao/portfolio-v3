@@ -10,6 +10,12 @@ export const ExperienceAndEducation = ({
   experiences,
   educations,
 }: IExperienceAndEducationProps) => {
+  const sliceFullDate = (date: string) => {
+    const slicedDate = date.slice(0, 7);
+
+    return slicedDate;
+  };
+
   return (
     <section className="bg-zinc-950 w-full">
       <div className="max-w-6xl w-full m-auto p-4 flex gap-16 justify-between items-center flex-wrap md:flex-nowrap">
@@ -24,6 +30,11 @@ export const ExperienceAndEducation = ({
             {experiences.map((experience) => (
               <Card
                 cardName={experience.name}
+                rightText={`${sliceFullDate(experience.startDate)} ~ ${
+                  experience.endDate
+                    ? sliceFullDate(experience.endDate)
+                    : "atual"
+                }`}
                 cardDescription={experience.shortDescription}
                 key={experience.startDate}
               />
@@ -42,6 +53,9 @@ export const ExperienceAndEducation = ({
             {educations.map((education) => (
               <Card
                 cardName={education.name}
+                rightText={`${sliceFullDate(education.startDate)} ~ ${
+                  education.endDate ? sliceFullDate(education.endDate) : "atual"
+                }`}
                 cardDescription={education.shortDescription}
                 key={education.startDate}
               />
