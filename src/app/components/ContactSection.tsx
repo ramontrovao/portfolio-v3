@@ -18,11 +18,11 @@ export const ContactSection = ({
   return (
     <section className="bg-zinc-950 w-full">
       <div className="max-w-6xl w-full m-auto p-4 flex gap-16 flex-col justify-center items-center">
-        <h2 className="text-gray-400 text-3xl font-normal max-w-2xl text-center">
+        <h2 className="text-gray-400 text-xl md:text-3xl font-normal max-w-2xl text-center">
           e aí, gostou do que viu? o que acha da gente bater um papo?
         </h2>
 
-        <strong className="text-gray-200 transition-all duration-300 hover:opacity-80 text-4xl font-bold max-w-2xl text-center">
+        <strong className="text-gray-200 transition-all duration-300 hover:opacity-80 text-2xl md:text-4xl font-bold max-w-2xl text-center">
           <a href={`mailto:${email}`}>{email}</a>
         </strong>
 
@@ -35,6 +35,7 @@ export const ContactSection = ({
                 <a
                   className="text-gray-400 transition-all duration-300 text-2xl font-normal text-center hover:opacity-80"
                   href={socialMedia.url}
+                  target="_blank"
                   title={`Visitar o meu ${socialMedia.name}`}
                   dangerouslySetInnerHTML={{ __html: socialMedia.logoSvg }}
                 />
@@ -44,6 +45,7 @@ export const ContactSection = ({
               <a
                 className="text-gray-400 transition-all duration-300 text-2xl font-normal text-center hover:opacity-80"
                 href={curriculumUrl}
+                target="_blank"
                 title={`Acesse meu currículo`}
                 dangerouslySetInnerHTML={{ __html: curriculumSvg }}
               />
