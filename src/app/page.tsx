@@ -68,7 +68,7 @@ export default async function Home() {
   };
 
   const experienceAndEducationProps = {
-    experiences: page.experiencies,
+    experiences: page.experiences,
     educations: page.educations,
   };
 

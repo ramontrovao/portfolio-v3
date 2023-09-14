@@ -37,7 +37,7 @@ export type THygraphData = {
       raw: RichTextContent;
     };
     educations: TEducation[];
-    experiencies: TExperience[];
+    experiences: TExperience[];
     technologies: TTechnology[];
     info: {
       email: string;

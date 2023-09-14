@@ -1,3 +1,4 @@
+import { Card } from "fragments/Card";
 import { TEducation, TExperience } from "types/THygraphData";
 
 interface IExperienceAndEducationProps {
@@ -11,25 +12,41 @@ export const ExperienceAndEducation = ({
 }: IExperienceAndEducationProps) => {
   return (
     <section className="bg-zinc-950 w-full">
-      <div className="max-w-6xl w-full m-auto p-4 flex justify-between items-center flex-wrap md:flex-nowrap gap-16">
-        <article>
+      <div className="max-w-6xl w-full m-auto p-4 flex gap-16 justify-between items-center flex-wrap md:flex-nowrap">
+        <article className="md:w-1/2">
           <header>
             <h2 className="text-gray-200 text-5xl font-bold max-w-2xl text-center">
               ex-pe-ri-ên-cias
             </h2>
           </header>
 
-          <main className="w-full flex flex-col justify-center items-center gap-4"></main>
+          <main className="w-full mt-8 flex flex-col justify-center items-center gap-4">
+            {experiences.map((experience) => (
+              <Card
+                cardName={experience.name}
+                cardDescription={experience.shortDescription}
+                key={experience.startDate}
+              />
+            ))}
+          </main>
         </article>
 
-        <article>
+        <article className="md:w-1/2">
           <header>
             <h2 className="text-gray-200 text-5xl font-bold max-w-2xl text-center">
               e-du-ca-ção
             </h2>
           </header>
 
-          <main className="w-full flex flex-col justify-center items-center gap-4"></main>
+          <main className="w-full mt-8 flex flex-col justify-center items-center gap-4">
+            {educations.map((education) => (
+              <Card
+                cardName={education.name}
+                cardDescription={education.shortDescription}
+                key={education.startDate}
+              />
+            ))}
+          </main>
         </article>
       </div>
     </section>

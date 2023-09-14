@@ -11,7 +11,7 @@ export const Card = ({
   rightText = "",
 }: ICardProps) => {
   return (
-    <article className="w-full flex flex-col gap-4 max-w-xl min-h-[7.5rem] p-4 border transition-all duration-300 hover:scale-95 bg-gradient-to-r from-zinc-950 to-zinc-900 border-gray-500 rounded-md">
+    <article className="w-full flex flex-col gap-4 min-w-full max-w-xl min-h-[7.5rem] p-4 border transition-all duration-300 hover:scale-95 bg-gradient-to-r from-zinc-950 to-zinc-900 border-gray-500 rounded-md">
       <header className="flex justify-between items-center">
         <strong className="font-bold text-md text-gray-200">{cardName}</strong>
 

@@ -26,12 +26,12 @@ export const IntroductionSection = ({
         </div>
 
         <div className="relative overflow-hidden">
-          <h1 className="text-gray-200 relative z-20 text-5xl font-bold max-w-2xl text-center">
+          <h1 className="text-gray-200 relative z-20 text-5xl font-bold md:max-w-2xl max-w-full text-center">
             {headline}
           </h1>
 
           <Image
-            className="absolute top-7 left-5 z-10 max-w-xs"
+            className="absolute top-7 left-4 z-10 max-w-xs"
             src={line}
             width={375}
             height={40}
