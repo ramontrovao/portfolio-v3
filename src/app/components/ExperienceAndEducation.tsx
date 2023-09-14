@@ -18,8 +18,8 @@ export const ExperienceAndEducation = ({
 
   return (
     <section className="bg-zinc-950 w-full">
-      <div className="max-w-6xl w-full m-auto p-4 flex gap-16 justify-between items-center flex-wrap md:flex-nowrap">
-        <article className="md:w-1/2">
+      <div className="max-w-6xl w-full m-auto p-4 flex gap-16 justify-center md:justify-between items-center flex-wrap md:flex-nowrap">
+        <article className="w-full md:w-1/2">
           <header>
             <h2 className="text-gray-200 text-5xl font-bold max-w-2xl text-center">
               ex-pe-ri-ên-cias
@@ -35,6 +35,7 @@ export const ExperienceAndEducation = ({
                     ? sliceFullDate(experience.endDate)
                     : "atual"
                 }`}
+                rightTextSize="md"
                 cardDescription={experience.shortDescription}
                 key={experience.startDate}
               />
@@ -42,7 +43,7 @@ export const ExperienceAndEducation = ({
           </main>
         </article>
 
-        <article className="md:w-1/2">
+        <article className="w-full md:w-1/2">
           <header>
             <h2 className="text-gray-200 text-5xl font-bold max-w-2xl text-center">
               e-du-ca-ção
@@ -56,6 +57,7 @@ export const ExperienceAndEducation = ({
                 rightText={`${sliceFullDate(education.startDate)} ~ ${
                   education.endDate ? sliceFullDate(education.endDate) : "atual"
                 }`}
+                rightTextSize="md"
                 cardDescription={education.shortDescription}
                 key={education.startDate}
               />

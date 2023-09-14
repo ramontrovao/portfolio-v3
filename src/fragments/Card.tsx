@@ -3,12 +3,14 @@ interface ICardProps {
   cardDescription: string;
 
   rightText?: string;
+  rightTextSize?: "xs" | "sm" | "md" | "lg" | "xl" | "2xl";
 }
 
 export const Card = ({
   cardName,
   cardDescription,
   rightText = "",
+  rightTextSize = "2xl",
 }: ICardProps) => {
   return (
     <article className="w-full flex flex-col gap-4 min-w-full max-w-xl min-h-[7.5rem] p-4 border transition-all duration-300 hover:scale-95 bg-gradient-to-r from-zinc-950 to-zinc-900 border-gray-500 rounded-md">
@@ -16,7 +18,7 @@ export const Card = ({
         <strong className="font-bold text-md text-gray-200">{cardName}</strong>
 
         <span
-          className="font-normal text-2xl text-gray-400"
+          className={`font-normal text-${rightTextSize} text-gray-400`}
           dangerouslySetInnerHTML={{ __html: rightText }}
         />
       </header>
