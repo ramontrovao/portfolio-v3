@@ -5,10 +5,10 @@ import { PortfolioSection } from "./components/PortfolioSection";
 import { TechsSection } from "./components/TechsSection";
 import { AboutMeSection } from "./components/AboutMeSection";
 import { ExperienceAndEducation } from "./components/ExperienceAndEducation";
+import { ContactSection } from "./components/ContactSection";
 
 const getHomeData = async () => {
-  const query = `
-  query MyQuery {
+  const query = `query HomeQuery {
     page(where: {slug: "home"}) {
       name
       headline
@@ -42,11 +42,17 @@ const getHomeData = async () => {
           logoSvg
           url
         }
+        curriculum {
+          svg
+          file {
+            url
+          }
+        }
+        phone
       }
     }
-  }
-  
-  `;
+  }`;
+
   return fetchHygraphQuery(query);
 };
 
@@ -72,6 +78,14 @@ export default async function Home() {
     educations: page.educations,
   };
 
+  const contactProps = {
+    email: page.info.email,
+    phone: page.info.phone,
+    curriculumUrl: page.info.curriculum.file.url,
+    curriculumSvg: page.info.curriculum.svg,
+    socialMedias: page.info.socialMedias,
+  };
+
   return (
     <main>
       <IntroductionSection {...introductionProps} />
@@ -79,6 +93,7 @@ export default async function Home() {
       <TechsSection {...techsProps} />
       <AboutMeSection {...aboutMeProps} />
       <ExperienceAndEducation {...experienceAndEducationProps} />
+      <ContactSection {...contactProps} />
     </main>
   );
 }

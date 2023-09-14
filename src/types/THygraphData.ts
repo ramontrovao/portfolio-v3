@@ -22,8 +22,8 @@ export type TTechnology = {
 
 export type TSocialMedia = {
   name: string;
-  url: string;
   logoSvg: string;
+  url: string;
 };
 
 export type THygraphData = {
@@ -41,6 +41,13 @@ export type THygraphData = {
     technologies: TTechnology[];
     info: {
       email: string;
+      phone: string;
+      curriculum: {
+        svg: string;
+        file: {
+          url: string;
+        };
+      };
       socialMedias: TSocialMedia[];
     };
   };
