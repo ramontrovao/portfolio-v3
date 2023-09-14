@@ -7,7 +7,7 @@ export type TEducation = {
   endDate: string;
 };
 
-export type TExperiences = {
+export type TExperience = {
   name: string;
   shortDescription: string;
   startDate: string;
@@ -37,7 +37,7 @@ export type THygraphData = {
       raw: RichTextContent;
     };
     educations: TEducation[];
-    experiencies: TExperiences[];
+    experiences: TExperience[];
     technologies: TTechnology[];
     info: {
       email: string;

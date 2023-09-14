@@ -4,6 +4,7 @@ import { IntroductionSection } from "./components/IntroductionSection";
 import { PortfolioSection } from "./components/PortfolioSection";
 import { TechsSection } from "./components/TechsSection";
 import { AboutMeSection } from "./components/AboutMeSection";
+import { ExperienceAndEducation } from "./components/ExperienceAndEducation";
 
 const getHomeData = async () => {
   const query = `
@@ -66,12 +67,18 @@ export default async function Home() {
     text: page.aboutme.raw,
   };
 
+  const experienceAndEducationProps = {
+    experiences: page.experiences,
+    educations: page.educations,
+  };
+
   return (
     <main>
       <IntroductionSection {...introductionProps} />
       <PortfolioSection />
       <TechsSection {...techsProps} />
       <AboutMeSection {...aboutMeProps} />
+      <ExperienceAndEducation {...experienceAndEducationProps} />
     </main>
   );
 }
