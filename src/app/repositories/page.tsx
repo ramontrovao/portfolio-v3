@@ -10,7 +10,7 @@ export default async function Repositories() {
 
   return (
     <main>
-      <RepositoriesSection />
+      <RepositoriesSection repositories={repositories} />
     </main>
   );
 }
