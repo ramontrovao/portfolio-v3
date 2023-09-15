@@ -16,7 +16,9 @@ export const ContactSection = ({
   curriculumSvg,
 }: IContactSectionProps) => {
   return (
-    <section className="bg-zinc-950 w-full">
+    <section
+      id="contato"
+      className="bg-zinc-950 w-full">
       <div className="max-w-6xl w-full m-auto px-4 py-16 flex gap-16 flex-col justify-center items-center">
         <h2 className="text-gray-400 text-xl md:text-3xl font-normal max-w-2xl text-center">
           e aí, gostou do que viu? o que acha da gente bater um papo?
