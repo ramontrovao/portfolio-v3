@@ -11,8 +11,8 @@ export const IntroductionSection = ({
   headline,
 }: IIntroductionSectionProps) => {
   return (
-    <section className="bg-zinc-950 w-full min-h-screen">
-      <div className="max-w-6xl w-full m-auto px-4 py-24 flex gap-8 flex-col justify-center items-center">
+    <section className="bg-zinc-950 w-full">
+      <div className="max-w-6xl min-h-screen w-full m-auto px-4 py-32 flex gap-8 flex-col justify-center items-center">
         <div className="flex justify-center items-center flex-col gap-4">
           <Image
             src="https://github.com/ramontrovao.png"
