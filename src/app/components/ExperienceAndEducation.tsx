@@ -13,8 +13,8 @@ export const ExperienceAndEducation = ({
   experiences,
   educations,
 }: IExperienceAndEducationProps) => {
-  const experiencesWithPagination = useArrayPagination(1, experiences);
-  const educationsWithPagination = useArrayPagination(1, educations);
+  const experiencesWithPagination = useArrayPagination(3, experiences);
+  const educationsWithPagination = useArrayPagination(3, educations);
 
   const sliceFullDate = (date: string) => {
     const slicedDate = date.slice(0, 7);
@@ -28,7 +28,7 @@ export const ExperienceAndEducation = ({
 
   return (
     <section className="bg-zinc-950 w-full">
-      <div className="max-w-6xl w-full m-auto p-4 flex gap-16 justify-center md:justify-between flex-wrap md:flex-nowrap">
+      <div className="max-w-6xl w-full m-auto px-4 py-16 flex gap-16 justify-center md:justify-between flex-wrap md:flex-nowrap">
         <article className="w-full md:w-1/2">
           <header>
             <h2 className="text-gray-200 text-5xl font-bold max-w-2xl text-center">
@@ -90,7 +90,7 @@ export const ExperienceAndEducation = ({
 
           {!educationsWithPagination.isOnLastPage && (
             <button
-              onClick={handleNextExperiencesPage}
+              onClick={handleNextEducationsPage}
               className="mt-4 bg-none border-none text-lg font-normal text-gray-400 transition-all duration-300 hover:opacity-80">
               ver mais
             </button>
