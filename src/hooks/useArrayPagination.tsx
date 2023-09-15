@@ -1,24 +1,32 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 export const useArrayPagination = (
   elementsPerPage: number,
   array: unknown[]
 ) => {
-  const [arrayUpdated, setArrayUpdated] = useState<unknown[]>([]);
+  const [arrayUpdated, setArrayUpdated] = useState<unknown[]>(
+    array.slice(0, elementsPerPage)
+  );
 
   const nextPage = () => {
-    let elementsToAdd: unknown[] = [];
+    let nextPageElements: unknown[] = [];
+
+    if (array.length === arrayUpdated.length) {
+      return;
+    }
 
     if (array.length - elementsPerPage <= 0) {
-      elementsToAdd = array.slice(arrayUpdated.length - 1, array.length - 1);
+      const lastArrayElements = array.slice(arrayUpdated.length, array.length);
+
+      nextPageElements = lastArrayElements;
     } else {
-      elementsToAdd = array.slice(
-        array.length - elementsPerPage,
-        array.length - 1
+      nextPageElements = array.slice(
+        arrayUpdated.length,
+        arrayUpdated.length + elementsPerPage
       );
     }
 
-    return setArrayUpdated((prev) => [...prev, elementsToAdd]);
+    return setArrayUpdated((prev) => [...prev, ...nextPageElements]);
   };
 
   return { arrayUpdated, nextPage };

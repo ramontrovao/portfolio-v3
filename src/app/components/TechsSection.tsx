@@ -1,8 +1,11 @@
+"use client";
+
 import { formatDistanceToNowStrict } from "date-fns";
 import ptBR from "date-fns/locale/pt-BR";
+import { Button } from "fragments/Button";
 
 import { Card } from "fragments/Card";
-import { useState } from "react";
+import { useArrayPagination } from "hooks/useArrayPagination";
 import { TTechnology } from "types/THygraphData";
 
 interface ITechsSection {
@@ -10,6 +13,8 @@ interface ITechsSection {
 }
 
 export const TechsSection = ({ techs }: ITechsSection) => {
+  const { arrayUpdated, nextPage } = useArrayPagination(4, techs);
+
   const formatDate = (date: Date) => {
     return formatDistanceToNowStrict(date, { locale: ptBR });
   };
@@ -24,7 +29,7 @@ export const TechsSection = ({ techs }: ITechsSection) => {
         </header>
 
         <main className="w-full flex flex-col justify-center items-center md:grid md:grid-cols-2 md:place-items-center gap-4">
-          {techs.map((tech) => (
+          {(arrayUpdated as TTechnology[]).map((tech, index) => (
             <Card
               cardName={tech.name}
               cardDescription={
@@ -35,10 +40,12 @@ export const TechsSection = ({ techs }: ITechsSection) => {
                   : "já usei em alguns projetos pessoais"
               }
               rightText={tech.iconSvg}
-              key={tech.iconSvg}
+              key={index}
             />
           ))}
         </main>
+
+        <Button onClick={() => nextPage()}>ver mais techs</Button>
       </div>
     </section>
   );
