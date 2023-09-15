@@ -13,7 +13,7 @@ interface ITechsSection {
 }
 
 export const TechsSection = ({ techs }: ITechsSection) => {
-  const { arrayUpdated, nextPage } = useArrayPagination(4, techs);
+  const { arrayUpdated, nextPage, isOnLastPage } = useArrayPagination(4, techs);
 
   const formatDate = (date: Date) => {
     return formatDistanceToNowStrict(date, { locale: ptBR });
@@ -45,7 +45,9 @@ export const TechsSection = ({ techs }: ITechsSection) => {
           ))}
         </main>
 
-        <Button onClick={() => nextPage()}>ver mais techs</Button>
+        {!isOnLastPage && (
+          <Button onClick={() => nextPage()}>ver mais techs</Button>
+        )}
       </div>
     </section>
   );

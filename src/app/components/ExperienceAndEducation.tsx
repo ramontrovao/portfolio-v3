@@ -54,11 +54,13 @@ export const ExperienceAndEducation = ({
             )}
           </main>
 
-          <button
-            onClick={handleNextExperiencesPage}
-            className="mt-4 bg-none border-none text-lg font-normal text-gray-400 transition-all duration-300 hover:opacity-80">
-            ver mais
-          </button>
+          {!experiencesWithPagination.isOnLastPage && (
+            <button
+              onClick={handleNextExperiencesPage}
+              className="mt-4 bg-none border-none text-lg font-normal text-gray-400 transition-all duration-300 hover:opacity-80">
+              ver mais
+            </button>
+          )}
         </article>
 
         <article className="w-full md:w-1/2">
@@ -86,11 +88,13 @@ export const ExperienceAndEducation = ({
             )}
           </main>
 
-          <button
-            onClick={handleNextEducationsPage}
-            className="mt-4 bg-none border-none text-lg font-normal text-gray-400 transition-all duration-300 hover:opacity-80">
-            ver mais
-          </button>
+          {!educationsWithPagination.isOnLastPage && (
+            <button
+              onClick={handleNextExperiencesPage}
+              className="mt-4 bg-none border-none text-lg font-normal text-gray-400 transition-all duration-300 hover:opacity-80">
+              ver mais
+            </button>
+          )}
         </article>
       </div>
     </section>

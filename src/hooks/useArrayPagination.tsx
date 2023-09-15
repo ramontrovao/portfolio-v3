@@ -8,6 +8,8 @@ export const useArrayPagination = (
     array.slice(0, elementsPerPage)
   );
 
+  const isOnLastPage = array.length === arrayUpdated.length;
+
   const nextPage = () => {
     let nextPageElements: unknown[] = [];
 
@@ -29,5 +31,5 @@ export const useArrayPagination = (
     return setArrayUpdated((prev) => [...prev, ...nextPageElements]);
   };
 
-  return { arrayUpdated, nextPage };
+  return { arrayUpdated, nextPage, isOnLastPage };
 };
