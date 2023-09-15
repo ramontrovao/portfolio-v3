@@ -2,6 +2,7 @@ import { formatDistanceToNowStrict } from "date-fns";
 import ptBR from "date-fns/locale/pt-BR";
 
 import { Card } from "fragments/Card";
+import { useState } from "react";
 import { TTechnology } from "types/THygraphData";
 
 interface ITechsSection {
