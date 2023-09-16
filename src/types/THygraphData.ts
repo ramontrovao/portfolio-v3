@@ -37,6 +37,9 @@ export type TProject = {
     id: string;
     name: string;
   }[];
+  wallpaper: {
+    url: string;
+  };
 };
 
 export type THomePageData = {
