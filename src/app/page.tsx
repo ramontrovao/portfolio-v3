@@ -6,6 +6,7 @@ import { TechsSection } from "./components/TechsSection";
 import { AboutMeSection } from "./components/AboutMeSection";
 import { ExperienceAndEducation } from "./components/ExperienceAndEducation";
 import { ContactSection } from "./components/ContactSection";
+import { THomePageData } from "types/THygraphData";
 
 const getHomeData = async () => {
   const query = `query HomeQuery {
@@ -57,7 +58,7 @@ const getHomeData = async () => {
 };
 
 export default async function Home() {
-  const { page } = await getHomeData();
+  const { page } = (await getHomeData()) as THomePageData;
 
   const introductionProps = {
     name: page.name,
