@@ -26,7 +26,23 @@ export type TSocialMedia = {
   url: string;
 };
 
-export type THygraphData = {
+export type TProject = {
+  id: string;
+  name: string;
+  prodUrl: string;
+  repoUrl: string;
+  description: string;
+  projectTechnologies: {
+    iconSvg: string;
+    id: string;
+    name: string;
+  }[];
+  wallpaper: {
+    url: string;
+  };
+};
+
+export type THomePageData = {
   page: {
     name: string;
     headline: string;
@@ -50,5 +66,12 @@ export type THygraphData = {
       };
       socialMedias: TSocialMedia[];
     };
+  };
+};
+
+export type TProjectsPageData = {
+  page: {
+    id: string;
+    projects: TProject[];
   };
 };

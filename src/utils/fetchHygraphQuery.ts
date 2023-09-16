@@ -1,8 +1,4 @@
-import { THygraphData } from "types/THygraphData";
-
-export const fetchHygraphQuery = async (
-  query: string
-): Promise<THygraphData> => {
+export const fetchHygraphQuery = async (query: string): Promise<unknown> => {
   try {
     const res = await fetch(process.env.HYGRAPH_URL!, {
       method: "POST",
@@ -18,7 +14,7 @@ export const fetchHygraphQuery = async (
     });
 
     const { data } = await res.json();
-    return data as THygraphData;
+    return data;
   } catch (err) {
     throw err;
   }
