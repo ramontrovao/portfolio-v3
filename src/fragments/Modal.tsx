@@ -27,7 +27,7 @@ export const Modal = ({
     <Dialog.Trigger>{triggerComponent}</Dialog.Trigger>
 
     <Dialog.Portal>
-      <Dialog.Overlay className="z-30 fixed flex justify-center items-center left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-zinc-800 w-screen h-screen bg-opacity-75">
+      <Dialog.Overlay className="z-30 p-4 fixed flex justify-center items-center left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-zinc-800 w-screen h-screen bg-opacity-75">
         <Dialog.Content className="relative flex justify-center items-center w-full max-w-2xl bg-zinc-900 rounded-md">
           {title ||
             (closeComponent && (

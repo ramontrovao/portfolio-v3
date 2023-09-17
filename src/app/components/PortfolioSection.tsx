@@ -1,12 +1,8 @@
 import Link from "next/link";
 import { Card } from "fragments/Card";
-import { appRoutes } from "constants/appRoutes";
+import { portfolioRoutes } from "constants/appRoutes";
 
 export const PortfolioSection = () => {
-  const portfolioRoutes = appRoutes.filter(
-    (appRoute) => appRoute.type === "portfolio"
-  );
-
   return (
     <section className="bg-zinc-950 w-full">
       <div className="max-w-6xl w-full m-auto px-4 py-16 flex gap-16 flex-col justify-center items-center">

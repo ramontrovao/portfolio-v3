@@ -1,9 +1,11 @@
 "use client";
 
 import Image from "next/image";
-import logo from "assets/logo.svg";
 import Link from "next/link";
-import { CommandModal } from "./CommandModal";
+
+import logo from "assets/logo.svg";
+
+import { CommandModal } from "../components/CommandModal";
 
 export const Header = () => {
   return (

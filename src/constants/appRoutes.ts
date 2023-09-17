@@ -1,6 +1,6 @@
 import { TAppRoute } from "types/TAppRoute";
 
-export const appRoutes: TAppRoute[] = [
+export const portfolioRoutes: TAppRoute[] = [
   {
     id: 1,
     name: "projetos",
