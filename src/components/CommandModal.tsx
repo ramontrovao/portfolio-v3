@@ -16,26 +16,27 @@ type TData = {
 
 export const CommandModal = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
-  const [data, setData] = useState<TData>({
+  const [modalData, setModalData] = useState<TData>({
     portfolio: portfolioRoutes,
     me: meRoutes,
   });
 
-  const hasPortfolioData = data.portfolio.length > 0;
-  const hasMeData = data.me.length > 0;
+  const hasPortfolioData = modalData.portfolio.length > 0;
+  const hasMeData = modalData.me.length > 0;
   const hasData = hasPortfolioData || hasMeData;
 
   const handleCloseModal = () => {
     setModalIsOpen(false);
 
-    return setData({ portfolio: portfolioRoutes, me: meRoutes });
+    return setModalData({ portfolio: portfolioRoutes, me: meRoutes });
   };
 
   const onInputChange = (e: FormEvent<HTMLInputElement>) => {
     const inputValue = e.currentTarget.value.trim().toLowerCase();
 
     if (inputValue === "") {
-      return setData({
+      // resets data found
+      return setModalData({
         portfolio: portfolioRoutes,
         me: meRoutes,
       });
@@ -48,7 +49,7 @@ export const CommandModal = () => {
       (route) => route.name.toLowerCase().indexOf(inputValue) !== -1
     );
 
-    return setData({ portfolio: portfolioUpdated, me: meUpdated });
+    return setModalData({ portfolio: portfolioUpdated, me: meUpdated });
   };
 
   return (
@@ -80,7 +81,7 @@ export const CommandModal = () => {
 
                 <main>
                   <ul>
-                    {data.portfolio.map((route) => (
+                    {modalData.portfolio.map((route) => (
                       <li key={route.id}>
                         <Link
                           onClick={handleCloseModal}
@@ -107,7 +108,7 @@ export const CommandModal = () => {
 
                 <main>
                   <ul>
-                    {data.me.map((route) => (
+                    {modalData.me.map((route) => (
                       <li key={route.id}>
                         <Link
                           onClick={handleCloseModal}
