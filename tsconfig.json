@@ -21,6 +21,7 @@
     "baseUrl": "src/",
     "paths": {
       "fragments/*": ["fragments/*"],
+      "components/*": ["components/*"],
       "assets/*": ["assets/*"],
       "styles/*": ["styles/*"],
       "utils/*": ["utils/*"],
