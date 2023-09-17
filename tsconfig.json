@@ -22,6 +22,7 @@
     "paths": {
       "fragments/*": ["fragments/*"],
       "components/*": ["components/*"],
+      "constants/*": ["constants/*"],
       "assets/*": ["assets/*"],
       "styles/*": ["styles/*"],
       "utils/*": ["utils/*"],
