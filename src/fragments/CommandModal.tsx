@@ -2,6 +2,7 @@ import Link from "next/link";
 import { MagnifyingGlass } from "@phosphor-icons/react";
 
 import { Modal } from "components/Modal";
+import { appRoutes } from "constants/appRoutes";
 
 export const CommandModal = () => {
   const openAnchor = (
@@ -9,6 +10,8 @@ export const CommandModal = () => {
       <MagnifyingGlass />
     </a>
   );
+
+  const data = [appRoutes];
 
   return (
     <Modal triggerComponent={openAnchor}>
@@ -29,13 +32,20 @@ export const CommandModal = () => {
 
             <main>
               <ul>
-                <li>
-                  <Link
-                    className="block text-gray-400 text-lg p-4 w-full border-l-2 border-transparent hover:border-gray-400"
-                    href="">
-                    home
-                  </Link>
-                </li>
+                {data[0].map((route) => (
+                  <li key={route.id}>
+                    <Link
+                      className="group flex items-center gap-4 text-gray-400 text-lg p-4 w-full border-l-2 border-transparent hover:pl-6 hover:border-gray-400"
+                      href={route.path}>
+                      <span
+                        className="group-hover:text-gray-200 text-gray-400"
+                        dangerouslySetInnerHTML={{ __html: route.icon }}
+                      />
+
+                      {route.name}
+                    </Link>
+                  </li>
+                ))}
               </ul>
             </main>
           </section>
