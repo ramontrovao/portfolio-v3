@@ -26,7 +26,9 @@ export const CommandModal = () => {
   const hasData = hasPortfolioData || hasMeData;
 
   const handleCloseModal = () => {
-    return setModalIsOpen(false);
+    setModalIsOpen(false);
+
+    return setData({ portfolio: portfolioRoutes, me: meRoutes });
   };
 
   const onInputChange = (e: FormEvent<HTMLInputElement>) => {
