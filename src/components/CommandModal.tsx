@@ -5,17 +5,25 @@ import { MagnifyingGlass } from "@phosphor-icons/react";
 import Link from "next/link";
 
 import { TAppRoute } from "types/TAppRoute";
-import { portfolioRoutes } from "constants/appRoutes";
+import { meRoutes, portfolioRoutes } from "constants/appRoutes";
 
 import { Modal } from "fragments/Modal";
 
+type TData = {
+  portfolio: TAppRoute[];
+  me: TAppRoute[];
+};
+
 export const CommandModal = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
-  const [data, setData] = useState<{ portfolio: TAppRoute[] }>({
+  const [data, setData] = useState<TData>({
     portfolio: portfolioRoutes,
+    me: meRoutes,
   });
 
-  const hasData = data.portfolio.length > 0;
+  const hasPortfolioData = data.portfolio.length > 0;
+  const hasMeData = data.me.length > 0;
+  const hasData = hasPortfolioData || hasMeData;
 
   const handleCloseModal = () => {
     return setModalIsOpen(false);
@@ -25,14 +33,20 @@ export const CommandModal = () => {
     const inputValue = e.currentTarget.value.trim().toLowerCase();
 
     if (inputValue === "") {
-      return setData({ portfolio: portfolioRoutes });
+      return setData({
+        portfolio: portfolioRoutes,
+        me: meRoutes,
+      });
     }
 
     const portfolioUpdated = portfolioRoutes.filter(
       (route) => route.name.toLowerCase().indexOf(inputValue) !== -1
     );
+    const meUpdated = meRoutes.filter(
+      (route) => route.name.toLowerCase().indexOf(inputValue) !== -1
+    );
 
-    return setData({ portfolio: portfolioUpdated });
+    return setData({ portfolio: portfolioUpdated, me: meUpdated });
   };
 
   return (
@@ -56,30 +70,59 @@ export const CommandModal = () => {
 
         {hasData && (
           <main className="overflow-y-scroll h-80">
-            <section>
-              <header className="px-4 pt-4">
-                <span className="text-gray-200 text-md">portfolio</span>
-              </header>
+            {hasPortfolioData && (
+              <section>
+                <header className="px-4 pt-4">
+                  <span className="text-gray-200 text-md">portfolio</span>
+                </header>
 
-              <main>
-                <ul>
-                  {data.portfolio.map((route) => (
-                    <li key={route.id}>
-                      <Link
-                        onClick={handleCloseModal}
-                        className="group flex items-center gap-4 text-gray-400 text-lg p-4 w-full border-l-2 border-transparent hover:pl-6 hover:border-gray-400"
-                        href={route.path}>
-                        <span
-                          className="group-hover:text-gray-200 text-gray-400"
-                          dangerouslySetInnerHTML={{ __html: route.icon }}
-                        />
-                        {route.name}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </main>
-            </section>
+                <main>
+                  <ul>
+                    {data.portfolio.map((route) => (
+                      <li key={route.id}>
+                        <Link
+                          onClick={handleCloseModal}
+                          className="group flex items-center gap-4 text-gray-400 text-lg p-4 w-full border-l-2 border-transparent hover:pl-6 hover:border-gray-400"
+                          href={route.path}>
+                          <span
+                            className="group-hover:text-gray-200 text-gray-400"
+                            dangerouslySetInnerHTML={{ __html: route.icon }}
+                          />
+                          {route.name}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </main>
+              </section>
+            )}
+
+            {hasMeData && (
+              <section>
+                <header className="px-4 pt-4">
+                  <span className="text-gray-200 text-md">eu</span>
+                </header>
+
+                <main>
+                  <ul>
+                    {data.me.map((route) => (
+                      <li key={route.id}>
+                        <Link
+                          onClick={handleCloseModal}
+                          className="group flex items-center gap-4 text-gray-400 text-lg p-4 w-full border-l-2 border-transparent hover:pl-6 hover:border-gray-400"
+                          href={route.path}>
+                          <span
+                            className="group-hover:text-gray-200 text-gray-400"
+                            dangerouslySetInnerHTML={{ __html: route.icon }}
+                          />
+                          {route.name}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </main>
+              </section>
+            )}
           </main>
         )}
 
