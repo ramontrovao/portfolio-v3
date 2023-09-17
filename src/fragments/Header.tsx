@@ -2,8 +2,8 @@
 
 import Image from "next/image";
 import logo from "assets/logo.svg";
-import { MagnifyingGlass } from "@phosphor-icons/react";
 import Link from "next/link";
+import { CommandModal } from "./CommandModal";
 
 export const Header = () => {
   return (
@@ -21,9 +21,7 @@ export const Header = () => {
           />
         </Link>
 
-        <button className="bg-slate-200 transition-all duration-300 hover:opacity-80 rounded-full p-3 text-2xl">
-          <MagnifyingGlass />
-        </button>
+        <CommandModal />
       </nav>
     </header>
   );
