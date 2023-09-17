@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import Link from "next/link";
 import { MagnifyingGlass } from "@phosphor-icons/react";
 
@@ -5,7 +8,9 @@ import { Modal } from "components/Modal";
 import { appRoutes } from "constants/appRoutes";
 
 export const CommandModal = () => {
-  const openAnchor = (
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+
+  const openAnchorComponent = (
     <a className="p-4 outline-none flex justify-center items-center bg-gray-200 text-gray-900 text-2xl rounded-full transition-all duration-300 hover:opacity-80">
       <MagnifyingGlass />
     </a>
@@ -13,8 +18,15 @@ export const CommandModal = () => {
 
   const data = [appRoutes];
 
+  const handleCloseModal = () => {
+    return setModalIsOpen(false);
+  };
+
   return (
-    <Modal triggerComponent={openAnchor}>
+    <Modal
+      isOpen={modalIsOpen}
+      onOpenChange={setModalIsOpen}
+      triggerComponent={openAnchorComponent}>
       <main className="w-full">
         <header>
           <input
@@ -35,13 +47,13 @@ export const CommandModal = () => {
                 {data[0].map((route) => (
                   <li key={route.id}>
                     <Link
+                      onClick={handleCloseModal}
                       className="group flex items-center gap-4 text-gray-400 text-lg p-4 w-full border-l-2 border-transparent hover:pl-6 hover:border-gray-400"
                       href={route.path}>
                       <span
                         className="group-hover:text-gray-200 text-gray-400"
                         dangerouslySetInnerHTML={{ __html: route.icon }}
                       />
-
                       {route.name}
                     </Link>
                   </li>

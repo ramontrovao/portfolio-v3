@@ -1,11 +1,13 @@
 "use client";
 
-import { ReactNode } from "react";
+import { ReactNode, Dispatch, SetStateAction } from "react";
 import * as Dialog from "@radix-ui/react-dialog";
 
 interface IModalProps {
   triggerComponent: ReactNode;
   children: ReactNode;
+  isOpen: boolean;
+  onOpenChange: Dispatch<SetStateAction<boolean>>;
 
   title?: string;
   closeComponent?: ReactNode;
@@ -16,8 +18,12 @@ export const Modal = ({
   closeComponent,
   triggerComponent,
   children,
+  isOpen,
+  onOpenChange,
 }: IModalProps) => (
-  <Dialog.Root>
+  <Dialog.Root
+    open={isOpen}
+    onOpenChange={onOpenChange}>
     <Dialog.Trigger>{triggerComponent}</Dialog.Trigger>
 
     <Dialog.Portal>
