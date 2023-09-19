@@ -1,13 +1,44 @@
-"use client";
-
 import Image from "next/image";
 import Link from "next/link";
 
 import logo from "assets/logo.svg";
 
+import { THeaderData } from "types/THygraphData";
+import { fetchHygraphQuery } from "utils/fetchHygraphQuery";
+
 import { CommandModal } from "../components/CommandModal";
 
-export const Header = () => {
+const getHeaderData = async () => {
+  const query = `query SocialMediasQuery {
+    page(where: {slug: "home"}) {
+      info {
+        socialMedias {
+          id
+          logoSvg
+          name
+          url
+        }
+        curriculum {
+          svg
+          file {
+            url
+          }
+        }
+      }
+    }
+  }
+  
+`;
+
+  return fetchHygraphQuery(query);
+};
+
+export const Header = async () => {
+  const { page } = (await getHeaderData()) as THeaderData;
+
+  const socialMedias = page.info.socialMedias;
+  const curriculum = page.info.curriculum;
+
   return (
     <header className="fixed w-full flex bg-transparent">
       <nav className="max-w-6xl w-full px-4 py-8 m-auto flex justify-between items-center">
@@ -23,7 +54,10 @@ export const Header = () => {
           />
         </Link>
 
-        <CommandModal />
+        <CommandModal
+          socialMedias={socialMedias}
+          curriculum={curriculum}
+        />
       </nav>
     </header>
   );
