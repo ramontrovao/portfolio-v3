@@ -42,6 +42,14 @@ export type TProject = {
   };
 };
 
+export type THeaderData = {
+  page: {
+    info: {
+      socialMedias: TSocialMedia[];
+    };
+  };
+};
+
 export type THomePageData = {
   page: {
     name: string;
