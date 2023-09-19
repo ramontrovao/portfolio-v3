@@ -1,21 +1,15 @@
-"use client";
-
-import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
 import logo from "assets/logo.svg";
 
-import { THeaderData, TSocialMedia } from "types/THygraphData";
+import { THeaderData } from "types/THygraphData";
 import { fetchHygraphQuery } from "utils/fetchHygraphQuery";
 
 import { CommandModal } from "../components/CommandModal";
 
-export const Header = () => {
-  const [socialMedias, setSocialMedias] = useState<TSocialMedia[]>([]);
-
-  const socialMediasQuery = `
-  query SocialMediasQuery {
+const getHeaderData = async () => {
+  const query = `query SocialMediasQuery {
     page(where: {slug: "home"}) {
       info {
         socialMedias {
@@ -29,17 +23,13 @@ export const Header = () => {
   }
   `;
 
-  useEffect(() => {
-    const getSocialMedias = async (): Promise<void> => {
-      const { page } = (await fetchHygraphQuery(
-        socialMediasQuery
-      )) as THeaderData;
+  return fetchHygraphQuery(query);
+};
 
-      return setSocialMedias(page.info.socialMedias);
-    };
+export const Header = async () => {
+  const { page } = (await getHeaderData()) as THeaderData;
 
-    getSocialMedias();
-  }, [socialMediasQuery]);
+  const socialMedias = page.info.socialMedias;
 
   return (
     <header className="fixed w-full flex bg-transparent">
@@ -56,7 +46,7 @@ export const Header = () => {
           />
         </Link>
 
-        <CommandModal />
+        <CommandModal socialMedias={socialMedias} />
       </nav>
     </header>
   );

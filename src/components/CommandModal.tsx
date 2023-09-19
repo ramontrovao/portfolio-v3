@@ -5,6 +5,7 @@ import { MagnifyingGlass } from "@phosphor-icons/react";
 import Link from "next/link";
 
 import { TAppRoute } from "types/TAppRoute";
+import { TSocialMedia } from "types/THygraphData";
 import { meRoutes, portfolioRoutes } from "constants/appRoutes";
 
 import { Modal } from "fragments/Modal";
@@ -12,23 +13,34 @@ import { Modal } from "fragments/Modal";
 type TData = {
   portfolio: TAppRoute[];
   me: TAppRoute[];
+  socialMedias: TSocialMedia[];
 };
 
-export const CommandModal = () => {
+interface ICommandModalProps {
+  socialMedias: TSocialMedia[];
+}
+
+export const CommandModal = ({ socialMedias }: ICommandModalProps) => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [modalData, setModalData] = useState<TData>({
     portfolio: portfolioRoutes,
     me: meRoutes,
+    socialMedias: socialMedias,
   });
 
   const hasPortfolioData = modalData.portfolio.length > 0;
   const hasMeData = modalData.me.length > 0;
-  const hasData = hasPortfolioData || hasMeData;
+  const hasSocialMediaData = modalData.socialMedias.length > 0;
+  const hasData = hasPortfolioData || hasMeData || hasSocialMediaData;
 
   const handleCloseModal = () => {
     setModalIsOpen(false);
 
-    return setModalData({ portfolio: portfolioRoutes, me: meRoutes });
+    return setModalData({
+      portfolio: portfolioRoutes,
+      me: meRoutes,
+      socialMedias,
+    });
   };
 
   const onInputChange = (e: FormEvent<HTMLInputElement>) => {
@@ -39,6 +51,7 @@ export const CommandModal = () => {
       return setModalData({
         portfolio: portfolioRoutes,
         me: meRoutes,
+        socialMedias,
       });
     }
 
@@ -48,8 +61,15 @@ export const CommandModal = () => {
     const meUpdated = meRoutes.filter(
       (route) => route.name.toLowerCase().indexOf(inputValue) !== -1
     );
+    const socialMediasUpdated = socialMedias.filter(
+      (socialMedia) => socialMedia.name.toLowerCase().indexOf(inputValue) !== -1
+    );
 
-    return setModalData({ portfolio: portfolioUpdated, me: meUpdated });
+    return setModalData({
+      portfolio: portfolioUpdated,
+      me: meUpdated,
+      socialMedias: socialMediasUpdated,
+    });
   };
 
   return (
@@ -119,6 +139,36 @@ export const CommandModal = () => {
                             dangerouslySetInnerHTML={{ __html: route.icon }}
                           />
                           {route.name}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </main>
+              </section>
+            )}
+
+            {hasSocialMediaData && (
+              <section>
+                <header className="px-4 pt-4">
+                  <span className="text-gray-200 text-md">links rápidos</span>
+                </header>
+
+                <main>
+                  <ul>
+                    {modalData.socialMedias.map((socialMedia) => (
+                      <li key={socialMedia.id}>
+                        <Link
+                          onClick={handleCloseModal}
+                          className="group flex items-center gap-4 text-gray-400 text-lg p-4 w-full border-l-2 border-transparent hover:pl-6 hover:border-gray-400"
+                          href={socialMedia.url}
+                          target="_blank">
+                          <span
+                            className="group-hover:text-gray-200 text-gray-400"
+                            dangerouslySetInnerHTML={{
+                              __html: socialMedia.logoSvg,
+                            }}
+                          />
+                          {socialMedia.name}
                         </Link>
                       </li>
                     ))}

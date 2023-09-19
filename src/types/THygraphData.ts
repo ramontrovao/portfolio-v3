@@ -21,6 +21,7 @@ export type TTechnology = {
 };
 
 export type TSocialMedia = {
+  id: string;
   name: string;
   logoSvg: string;
   url: string;
