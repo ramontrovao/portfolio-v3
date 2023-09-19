@@ -6,6 +6,7 @@ import Link from "next/link";
 
 import { TAppRoute } from "types/TAppRoute";
 import { TSocialMedia, TCurriculum } from "types/THygraphData";
+
 import { meRoutes, portfolioRoutes } from "constants/appRoutes";
 
 import { Modal } from "fragments/Modal";
@@ -14,6 +15,7 @@ type TData = {
   portfolio: TAppRoute[];
   me: TAppRoute[];
   socialMedias: TSocialMedia[];
+  hasCurriculum: boolean;
 };
 
 interface ICommandModalProps {
@@ -30,12 +32,17 @@ export const CommandModal = ({
     portfolio: portfolioRoutes,
     me: meRoutes,
     socialMedias: socialMedias,
+    hasCurriculum: true,
   });
 
   const hasPortfolioData = modalData.portfolio.length > 0;
   const hasMeData = modalData.me.length > 0;
-  const hasSocialMediaData = modalData.socialMedias.length > 0;
-  const hasData = hasPortfolioData || hasMeData || hasSocialMediaData;
+  const hasSocialMediaOrCurriculumData =
+    modalData.socialMedias.length > 0 || modalData.hasCurriculum;
+  const hasData =
+    hasPortfolioData || hasMeData || hasSocialMediaOrCurriculumData;
+
+  const curriculumInnerText = "currículo";
 
   const handleCloseModal = () => {
     setModalIsOpen(false);
@@ -44,35 +51,40 @@ export const CommandModal = ({
       portfolio: portfolioRoutes,
       me: meRoutes,
       socialMedias,
+      hasCurriculum: true,
     });
   };
 
   const onInputChange = (e: FormEvent<HTMLInputElement>) => {
-    const inputValue = e.currentTarget.value.trim().toLowerCase();
+    const value = e.currentTarget.value.trim().toLowerCase();
 
-    if (inputValue === "") {
+    if (value === "") {
       // resets data found
       return setModalData({
         portfolio: portfolioRoutes,
         me: meRoutes,
         socialMedias,
+        hasCurriculum: true,
       });
     }
 
     const portfolioUpdated = portfolioRoutes.filter(
-      (route) => route.name.toLowerCase().indexOf(inputValue) !== -1
+      (route) => route.name.toLowerCase().indexOf(value) !== -1
     );
     const meUpdated = meRoutes.filter(
-      (route) => route.name.toLowerCase().indexOf(inputValue) !== -1
+      (route) => route.name.toLowerCase().indexOf(value) !== -1
     );
     const socialMediasUpdated = socialMedias.filter(
-      (socialMedia) => socialMedia.name.toLowerCase().indexOf(inputValue) !== -1
+      (socialMedia) => socialMedia.name.toLowerCase().indexOf(value) !== -1
     );
+    const curriculumUpdated =
+      curriculumInnerText.toLowerCase().indexOf(value) !== -1;
 
     return setModalData({
       portfolio: portfolioUpdated,
       me: meUpdated,
       socialMedias: socialMediasUpdated,
+      hasCurriculum: curriculumUpdated,
     });
   };
 
@@ -151,7 +163,7 @@ export const CommandModal = ({
               </section>
             )}
 
-            {hasSocialMediaData && (
+            {hasSocialMediaOrCurriculumData && (
               <section>
                 <header className="px-4 pt-4">
                   <span className="text-gray-200 text-md">links rápidos</span>
@@ -176,19 +188,21 @@ export const CommandModal = ({
                         </Link>
                       </li>
                     ))}
-                    <li>
-                      <Link
-                        onClick={handleCloseModal}
-                        className="group flex items-center gap-4 text-gray-400 text-lg p-4 w-full border-l-2 border-transparent hover:pl-6 hover:border-gray-400"
-                        href={curriculum.file.url}
-                        target="_blank">
-                        <span
-                          className="group-hover:text-gray-200 text-gray-400"
-                          dangerouslySetInnerHTML={{ __html: curriculum.svg }}
-                        />
-                        currículo
-                      </Link>
-                    </li>
+                    {modalData.hasCurriculum && (
+                      <li>
+                        <Link
+                          onClick={handleCloseModal}
+                          className="group flex items-center gap-4 text-gray-400 text-lg p-4 w-full border-l-2 border-transparent hover:pl-6 hover:border-gray-400"
+                          href={curriculum.file.url}
+                          target="_blank">
+                          <span
+                            className="group-hover:text-gray-200 text-gray-400"
+                            dangerouslySetInnerHTML={{ __html: curriculum.svg }}
+                          />
+                          {curriculumInnerText}
+                        </Link>
+                      </li>
+                    )}
                   </ul>
                 </main>
               </section>
