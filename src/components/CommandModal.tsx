@@ -5,7 +5,7 @@ import { MagnifyingGlass } from "@phosphor-icons/react";
 import Link from "next/link";
 
 import { TAppRoute } from "types/TAppRoute";
-import { TSocialMedia } from "types/THygraphData";
+import { TSocialMedia, TCurriculum } from "types/THygraphData";
 import { meRoutes, portfolioRoutes } from "constants/appRoutes";
 
 import { Modal } from "fragments/Modal";
@@ -18,9 +18,13 @@ type TData = {
 
 interface ICommandModalProps {
   socialMedias: TSocialMedia[];
+  curriculum: TCurriculum;
 }
 
-export const CommandModal = ({ socialMedias }: ICommandModalProps) => {
+export const CommandModal = ({
+  socialMedias,
+  curriculum,
+}: ICommandModalProps) => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [modalData, setModalData] = useState<TData>({
     portfolio: portfolioRoutes,
@@ -172,6 +176,19 @@ export const CommandModal = ({ socialMedias }: ICommandModalProps) => {
                         </Link>
                       </li>
                     ))}
+                    <li>
+                      <Link
+                        onClick={handleCloseModal}
+                        className="group flex items-center gap-4 text-gray-400 text-lg p-4 w-full border-l-2 border-transparent hover:pl-6 hover:border-gray-400"
+                        href={curriculum.file.url}
+                        target="_blank">
+                        <span
+                          className="group-hover:text-gray-200 text-gray-400"
+                          dangerouslySetInnerHTML={{ __html: curriculum.svg }}
+                        />
+                        currículo
+                      </Link>
+                    </li>
                   </ul>
                 </main>
               </section>

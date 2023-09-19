@@ -18,10 +18,17 @@ const getHeaderData = async () => {
           name
           url
         }
+        curriculum {
+          svg
+          file {
+            url
+          }
+        }
       }
     }
   }
-  `;
+  
+`;
 
   return fetchHygraphQuery(query);
 };
@@ -30,6 +37,7 @@ export const Header = async () => {
   const { page } = (await getHeaderData()) as THeaderData;
 
   const socialMedias = page.info.socialMedias;
+  const curriculum = page.info.curriculum;
 
   return (
     <header className="fixed w-full flex bg-transparent">
@@ -46,7 +54,10 @@ export const Header = async () => {
           />
         </Link>
 
-        <CommandModal socialMedias={socialMedias} />
+        <CommandModal
+          socialMedias={socialMedias}
+          curriculum={curriculum}
+        />
       </nav>
     </header>
   );

@@ -27,6 +27,13 @@ export type TSocialMedia = {
   url: string;
 };
 
+export type TCurriculum = {
+  svg: string;
+  file: {
+    url: string;
+  };
+};
+
 export type TProject = {
   id: string;
   name: string;
@@ -47,6 +54,7 @@ export type THeaderData = {
   page: {
     info: {
       socialMedias: TSocialMedia[];
+      curriculum: TCurriculum;
     };
   };
 };
@@ -67,12 +75,7 @@ export type THomePageData = {
     info: {
       email: string;
       phone: string;
-      curriculum: {
-        svg: string;
-        file: {
-          url: string;
-        };
-      };
+      curriculum: TCurriculum;
       socialMedias: TSocialMedia[];
     };
   };
