@@ -18,6 +18,7 @@ export const PortfolioSection = () => {
               key={route.id}
               href={route.path}>
               <Card
+                hasHoverAnimation
                 cardName={route.name}
                 cardDescription={route.description}
               />

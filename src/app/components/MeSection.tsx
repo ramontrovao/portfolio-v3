@@ -18,6 +18,7 @@ export const MeSection = () => {
               key={route.id}
               href={route.path}>
               <Card
+                hasHoverAnimation
                 cardName={route.name}
                 cardDescription={route.description}
               />
