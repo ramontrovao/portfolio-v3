@@ -43,7 +43,7 @@ export const RepositoriesSection = ({
               target="_blank"
               title={`Repositório do github de nome "${repository.name}" com autor ${repository.full_name}`}
               key={repository.id}
-              href={repository.git_url}>
+              href={repository.html_url}>
               <Card
                 cardName={repository.full_name}
                 cardDescription={repository.description ?? "sem descrição :("}
