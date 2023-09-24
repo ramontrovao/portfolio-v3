@@ -14,6 +14,9 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      minHeight: {
+        'screen-without-footer-and-header': 'calc(100vh - 11.2rem)',
+      },
     },
   },
   plugins: [],
