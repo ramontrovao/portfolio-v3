@@ -1,6 +1,7 @@
 import { fetchHygraphQuery } from "utils/fetchHygraphQuery";
 import { ProjectsSection } from "./components/ProjectsSection";
 import { TProjectsPageData } from "types/THygraphData";
+import { Metadata } from "next";
 
 const getProjectsData = async () => {
   const query = `query ProjectsQuery {
@@ -27,6 +28,10 @@ const getProjectsData = async () => {
 
   return fetchHygraphQuery(query);
 };
+
+export const metadata: Metadata = {
+  title: "projetos"
+}
 
 export default async function Projects() {
   const { page } = (await getProjectsData()) as TProjectsPageData;
