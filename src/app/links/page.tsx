@@ -7,17 +7,18 @@ import { LinksSection } from "./components/LinksSection";
 
 const getLinksData = async () => {
   const query = `query LinksQuery {
-        page(where: {slug: "links"}) {
-          info {
-            socialMedias {
-              id
-              name
-              logoSvg
-              url
-            }
-          }
+    page(where: {slug: "links"}) {
+      info {
+        socialMedias {
+          id
+          name
+          logoSvg
+          url
         }
-      }`;
+      }
+      name
+    }
+  }`;
 
   return fetchHygraphQuery(query);
 };
@@ -31,7 +32,10 @@ export default async function Links() {
 
   return (
     <main>
-      <LinksSection links={page.info.socialMedias} />
+      <LinksSection
+        links={page.info.socialMedias}
+        name={page.name}
+      />
     </main>
   );
 }

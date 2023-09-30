@@ -90,6 +90,7 @@ export type TProjectsPageData = {
 
 export type TLinksPageData = {
   page: {
+    name: string;
     info: {
       socialMedias: TSocialMedia[];
     };
