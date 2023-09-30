@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export const LinksSection = () => {
   return (
@@ -13,6 +14,12 @@ export const LinksSection = () => {
           height={350}
           className="rounded-full max-w-[12.5rem]"
         />
+
+        <ul>
+          <li>
+            <Link href="/">portfólio</Link>
+          </li>
+        </ul>
       </div>
     </section>
   );

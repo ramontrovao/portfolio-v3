@@ -173,7 +173,7 @@ export const CommandModal = ({
                   <ul>
                     {modalData.socialMedias.map((socialMedia) => (
                       <li key={socialMedia.id}>
-                        <Link
+                        <a
                           onClick={handleCloseModal}
                           className="group flex items-center gap-4 text-gray-400 text-lg p-4 w-full border-l-2 border-transparent hover:pl-6 hover:border-gray-400"
                           href={socialMedia.url}
@@ -185,12 +185,12 @@ export const CommandModal = ({
                             }}
                           />
                           {socialMedia.name}
-                        </Link>
+                        </a>
                       </li>
                     ))}
                     {modalData.hasCurriculum && (
                       <li>
-                        <Link
+                        <a
                           onClick={handleCloseModal}
                           className="group flex items-center gap-4 text-gray-400 text-lg p-4 w-full border-l-2 border-transparent hover:pl-6 hover:border-gray-400"
                           href={curriculum.file.url}
@@ -200,7 +200,7 @@ export const CommandModal = ({
                             dangerouslySetInnerHTML={{ __html: curriculum.svg }}
                           />
                           {curriculumInnerText}
-                        </Link>
+                        </a>
                       </li>
                     )}
                   </ul>
