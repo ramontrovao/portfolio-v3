@@ -20,6 +20,7 @@ export const PortfolioSection = () => {
               <Card
                 cardName={route.name}
                 cardDescription={route.description}
+                hasHoverAnimation
               />
             </Link>
           ))}
