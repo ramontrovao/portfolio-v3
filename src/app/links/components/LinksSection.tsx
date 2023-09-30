@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 
+import logo from "../../../assets/logo.svg";
+
 export const LinksSection = () => {
   return (
     <section
@@ -15,8 +17,13 @@ export const LinksSection = () => {
           className="rounded-full max-w-[12.5rem]"
         />
 
-        <ul>
-          <li>
+        <ul className="w-full max-w-sm">
+          <li className="w-full flex gap-4 justify-center items-center border border-gray-400 rounded-lg text-gray-200 transition-all duration-300 hover:opacity-80 text-lg font-normal p-4">
+            <Image
+              className="w-5"
+              src={logo}
+              alt=""
+            />
             <Link href="/">portfólio</Link>
           </li>
         </ul>
