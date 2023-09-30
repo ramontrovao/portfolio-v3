@@ -23,10 +23,10 @@ export const LinksSection = ({ links }: ILinksSectionProps) => {
         />
 
         <ul className="w-full max-w-sm flex flex-col gap-8">
-          <li className="w-full border border-gray-400 rounded-lg text-gray-200 transition-all duration-300 hover:opacity-80 text-lg font-normal p-4">
+          <li className="w-full border border-gray-400 rounded-lg text-gray-200 transition-all duration-300 hover:opacity-80 text-lg font-normal">
             <Link
               href="/"
-              className="flex gap-4 justify-center items-center">
+              className="p-4 flex gap-4 justify-center items-center">
               <Image
                 className="w-5"
                 src={logo}
@@ -41,10 +41,11 @@ export const LinksSection = ({ links }: ILinksSectionProps) => {
           {links.map((link) => (
             <li
               key={link.id}
-              className="w-full border border-gray-400 rounded-lg text-gray-200 transition-all duration-300 hover:opacity-80 text-lg font-normal p-4">
+              className="w-full border border-gray-400 rounded-lg text-gray-200 transition-all duration-300 hover:opacity-80 text-lg font-normal">
               <a
-                className="flex gap-4 justify-center items-center"
-                href={link.url}>
+                className="p-4 flex gap-4 justify-center items-center"
+                href={link.url}
+                target="_blank">
                 <span dangerouslySetInnerHTML={{ __html: link.logoSvg }} />
                 {link.name}
               </a>

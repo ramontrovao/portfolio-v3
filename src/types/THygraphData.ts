@@ -87,3 +87,11 @@ export type TProjectsPageData = {
     projects: TProject[];
   };
 };
+
+export type TLinksPageData = {
+  page: {
+    info: {
+      socialMedias: TSocialMedia[];
+    };
+  };
+};

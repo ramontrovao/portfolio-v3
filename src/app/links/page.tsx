@@ -1,6 +1,9 @@
-import Image from "next/image";
-import { LinksSection } from "./components/LinksSection";
+import type { Metadata } from "next";
+
 import { fetchHygraphQuery } from "utils/fetchHygraphQuery";
+import type { TLinksPageData } from "types/THygraphData";
+
+import { LinksSection } from "./components/LinksSection";
 
 const getLinksData = async () => {
   const query = `query LinksQuery {
@@ -19,8 +22,12 @@ const getLinksData = async () => {
   return fetchHygraphQuery(query);
 };
 
+export const metadata: Metadata = {
+  title: "links",
+};
+
 export default async function Links() {
-  const { page } = await getLinksData();
+  const { page } = (await getLinksData()) as TLinksPageData;
 
   return (
     <main>
