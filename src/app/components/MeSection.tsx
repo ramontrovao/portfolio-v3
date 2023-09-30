@@ -20,6 +20,7 @@ export const MeSection = () => {
               <Card
                 cardName={route.name}
                 cardDescription={route.description}
+                hasHoverAnimation
               />
             </Link>
           ))}
