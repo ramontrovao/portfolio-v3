@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
-import hamud from "../assets/hamud.gif";
+import hamud from "assets/hamud.gif";
 
 export const metadata: Metadata = {
   title: "não encontrado",
