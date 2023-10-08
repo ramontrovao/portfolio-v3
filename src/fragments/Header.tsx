@@ -40,7 +40,7 @@ export const Header = async () => {
   const curriculum = page.info.curriculum;
 
   return (
-    <header className="fixed w-full flex bg-transparent">
+    <header className="z-40 fixed w-full flex bg-transparent">
       <nav className="max-w-6xl w-full px-4 py-8 m-auto flex justify-between items-center">
         <Link
           className="transition-all duration-300 hover:opacity-80"
