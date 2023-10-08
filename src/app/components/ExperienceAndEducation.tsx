@@ -48,7 +48,7 @@ export const ExperienceAndEducation = ({
                   }`}
                   rightTextSize="md"
                   cardDescription={experience.shortDescription}
-                  key={experience.startDate}
+                  key={experience.id}
                 />
               )
             )}
@@ -82,7 +82,7 @@ export const ExperienceAndEducation = ({
                   }`}
                   rightTextSize="md"
                   cardDescription={education.shortDescription}
-                  key={education.startDate}
+                  key={education.id}
                 />
               )
             )}

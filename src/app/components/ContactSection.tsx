@@ -33,7 +33,7 @@ export const ContactSection = ({
             {socialMedias.map((socialMedia) => (
               <li
                 className="flex justify-center items-center"
-                key={socialMedia.logoSvg}>
+                key={socialMedia.id}>
                 <a
                   className="text-gray-400 transition-all duration-300 text-2xl font-normal text-center hover:opacity-80"
                   href={socialMedia.url}

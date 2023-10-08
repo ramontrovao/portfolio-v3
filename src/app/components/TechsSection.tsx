@@ -42,7 +42,7 @@ export const TechsSection = ({ techs }: ITechsSection) => {
                   : "já usei em alguns projetos pessoais"
               }
               rightText={tech.iconSvg}
-              key={index}
+              key={tech.id}
             />
           ))}
         </main>

@@ -1,6 +1,7 @@
 import type { RichTextContent } from "@graphcms/rich-text-types";
 
 export type TEducation = {
+  id: string;
   name: string;
   shortDescription: string;
   startDate: string;
@@ -8,6 +9,7 @@ export type TEducation = {
 };
 
 export type TExperience = {
+  id: string;
   name: string;
   shortDescription: string;
   startDate: string;
@@ -15,6 +17,7 @@ export type TExperience = {
 };
 
 export type TTechnology = {
+  id: string;
   name: string;
   iconSvg: string;
   startDate: string;
