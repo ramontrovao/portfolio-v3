@@ -18,6 +18,7 @@ const getHomeData = async () => {
         raw
       }
       educations {
+        id
         name
         startDate
         endDate
@@ -27,12 +28,14 @@ const getHomeData = async () => {
         url
       }
       experiences {
+        id
         name
         startDate
         endDate
         shortDescription
       }
       technologies {
+        id
         name
         iconSvg
         startDate
@@ -40,6 +43,7 @@ const getHomeData = async () => {
       info {
         email
         socialMedias {
+          id
           name
           logoSvg
           url

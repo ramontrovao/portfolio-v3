@@ -27,7 +27,7 @@ export const Modal = ({
     <RadixDialog.Trigger>{triggerComponent}</RadixDialog.Trigger>
 
     <RadixDialog.Portal>
-      <RadixDialog.Overlay className="z-30 p-4 fixed flex justify-center items-center left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-zinc-800 w-screen h-screen bg-opacity-75">
+      <RadixDialog.Overlay className="z-50 p-4 fixed flex justify-center items-center left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-zinc-800 w-screen h-screen bg-opacity-75">
         <RadixDialog.Content className="relative flex justify-center items-center w-full max-w-2xl bg-zinc-900 rounded-md">
           {title ||
             (closeComponent && (
