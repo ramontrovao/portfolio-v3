@@ -23,8 +23,7 @@ export const IntroductionSection = ({
             alt=""
             width={350}
             height={350}
-            className="max-w-[12.5rem] rounded-full transition-all duration-500"
-            whileHover={{ borderRadius: "4px" }}
+            className="max-w-[12.5rem] rounded-full transition-all duration-700 hover:rounded-lg"
           />
 
           <span className="text-gray-300 text-xl">olá, sou {name} :)</span>
@@ -35,12 +34,14 @@ export const IntroductionSection = ({
             {headline}
           </h1>
 
-          <Image
+          <ImageMotion
             className="absolute top-7 left-4 z-10 max-w-xs"
             src={line}
             width={375}
             height={40}
             alt=""
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
           />
         </div>
       </div>
