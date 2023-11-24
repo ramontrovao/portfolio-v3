@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 
 import logo from "assets/logo.svg";
@@ -7,6 +6,8 @@ import { THeaderData } from "types/THygraphData";
 import { fetchHygraphQuery } from "utils/fetchHygraphQuery";
 
 import { CommandModal } from "../components/CommandModal";
+import { ImageMotion } from "./ImageMotion";
+import { ProgressHeader } from "./ProgressHeader";
 
 const getHeaderData = async () => {
   const query = `query SocialMediasQuery {
@@ -41,11 +42,13 @@ export const Header = async () => {
 
   return (
     <header className="z-40 fixed w-full flex bg-transparent">
+      <ProgressHeader />
+
       <nav className="max-w-6xl w-full px-4 py-8 m-auto flex justify-between items-center">
         <Link
           className="transition-all duration-300 hover:opacity-80"
           href="/">
-          <Image
+          <ImageMotion
             src={logo}
             alt=""
             width={400}

@@ -1,5 +1,9 @@
+"use client";
+
 import Image from "next/image";
 import line from "assets/line.svg";
+import { motion } from "framer-motion";
+import { ImageMotion } from "fragments/ImageMotion";
 
 interface IIntroductionSectionProps {
   name: string;
@@ -14,12 +18,12 @@ export const IntroductionSection = ({
     <section className="bg-zinc-950 w-full">
       <div className="max-w-6xl min-h-screen w-full m-auto px-4 py-32 flex gap-8 flex-col justify-center items-center">
         <div className="flex justify-center items-center flex-col gap-4">
-          <Image
+          <ImageMotion
             src="https://github.com/ramontrovao.png"
             alt=""
             width={350}
             height={350}
-            className="rounded-full max-w-[12.5rem]"
+            className="max-w-[12.5rem] rounded-full transition-all duration-700 hover:rounded-lg"
           />
 
           <span className="text-gray-300 text-xl">olá, sou {name} :)</span>
@@ -30,12 +34,14 @@ export const IntroductionSection = ({
             {headline}
           </h1>
 
-          <Image
+          <ImageMotion
             className="absolute top-7 left-4 z-10 max-w-xs"
             src={line}
             width={375}
             height={40}
             alt=""
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
           />
         </div>
       </div>
