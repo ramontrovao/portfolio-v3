@@ -1,9 +1,11 @@
+"use client";
+
 import { motion } from "framer-motion";
 import Image, { ImageProps } from "next/image";
 import { forwardRef } from "react";
 
 const ImageWithForwardRef = forwardRef<HTMLImageElement, ImageProps>(
-  function ExoticImageWrapper(props, ref) {
+  function ImageWithForwardRefWrapper(props, ref) {
     return (
       <Image
         {...props}

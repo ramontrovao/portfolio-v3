@@ -1,9 +1,9 @@
-import Image from "next/image";
 import Link from "next/link";
 import type { RichTextContent } from "@graphcms/rich-text-types";
 
 import { RichText } from "fragments/RichText";
 import { Button } from "fragments/Button";
+import { ImageMotion } from "fragments/ImageMotion";
 
 interface IAboutMeProps {
   image: string;
@@ -23,12 +23,20 @@ export const AboutMeSection = ({ image, text }: IAboutMeProps) => {
         </header>
 
         <main className="relative w-full flex gap-4">
-          <Image
-            className="sticky max-w-[7.5rem] max-h-[7.5rem] md:max-w-[17.5rem] md:max-h-[17.5rem] top-2 rounded-lg"
+          <ImageMotion
+            className="sticky max-w-[7.5rem] max-h-[7.5rem] md:max-w-[17.5rem] md:max-h-[17.5rem] top-2"
             src={image}
             width={500}
             height={500}
             alt=""
+            animate={{
+              borderRadius: ["30%", "10%", "20%", "25%", "30%"],
+            }}
+            transition={{
+              repeat: Infinity,
+              times: [0, 0.2, 0.5, 0.8, 1],
+              duration: 2,
+            }}
           />
 
           <div className="text-gray-400 flex flex-col gap-6 flex-1 font-normal text-md">
