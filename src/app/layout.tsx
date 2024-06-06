@@ -46,8 +46,8 @@ export default function RootLayout({
         {children}
         <Footer />
       </body>
-      <GoogleAnalytics gaId={process.env.GA4_ID || ""} />
-      <GoogleTagManager gtmId={process.env.GTM_ID || ""} />
+      {process.env.GA4_ID && <GoogleAnalytics gaId={process.env.GA4_ID} />}
+      {process.env.GTM_ID && <GoogleTagManager gtmId={process.env.GTM_ID} />}
     </html>
   );
 }
