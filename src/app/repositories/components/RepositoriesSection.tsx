@@ -12,11 +12,13 @@ interface IRepositoriesSectionProps {
 export const RepositoriesSection = ({
   repositories,
 }: IRepositoriesSectionProps) => {
-  const publicRepositories = repositories.filter(
-    (repository) =>
-      repository.visibility === "public" &&
-      repository.owner.login === "ramontrovao"
-  );
+  const publicRepositories = Array.isArray(repositories)
+    ? repositories.filter(
+        (repository) =>
+          repository.visibility === "public" &&
+          repository.owner.login === "ramontrovao"
+      )
+    : [];
 
   const { arrayUpdated, nextPage, isOnLastPage } = useArrayPagination(
     8,
