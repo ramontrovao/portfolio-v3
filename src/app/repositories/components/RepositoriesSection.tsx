@@ -12,11 +12,13 @@ interface IRepositoriesSectionProps {
 export const RepositoriesSection = ({
   repositories,
 }: IRepositoriesSectionProps) => {
-  const publicRepositories = repositories.filter(
-    (repository) =>
-      repository.visibility === "public" &&
-      repository.owner.login === "ramontrovao"
-  );
+  const publicRepositories = Array.isArray(repositories)
+    ? repositories.filter(
+        (repository) =>
+          repository.visibility === "public" &&
+          repository.owner.login === "ramontrovao"
+      )
+    : [];
 
   const { arrayUpdated, nextPage, isOnLastPage } = useArrayPagination(
     8,
@@ -43,7 +45,8 @@ export const RepositoriesSection = ({
               target="_blank"
               title={`Repositório do github de nome "${repository.name}" com autor ${repository.full_name}`}
               key={repository.id}
-              href={repository.git_url}>
+              href={repository.git_url}
+            >
               <Card
                 cardName={repository.full_name}
                 cardDescription={repository.description ?? "sem descrição :("}
