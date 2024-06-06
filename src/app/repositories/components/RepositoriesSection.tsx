@@ -12,7 +12,7 @@ interface IRepositoriesSectionProps {
 export const RepositoriesSection = ({
   repositories,
 }: IRepositoriesSectionProps) => {
-  const publicRepositories = repositories?.filter(
+  const publicRepositories = repositories.filter(
     (repository) =>
       repository.visibility === "public" &&
       repository.owner.login === "ramontrovao"
