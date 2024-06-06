@@ -1,6 +1,7 @@
 import "styles/global.css";
 
 import type { Metadata } from "next";
+import { GoogleTagManager, GoogleAnalytics } from "@next/third-parties/google";
 import { Poppins } from "next/font/google";
 
 import { Header } from "fragments/Header";
@@ -45,6 +46,8 @@ export default function RootLayout({
         {children}
         <Footer />
       </body>
+      <GoogleAnalytics gaId={process.env.GA4_ID || ""} />
+      <GoogleTagManager gtmId={process.env.GTM_ID || ""} />
     </html>
   );
 }
