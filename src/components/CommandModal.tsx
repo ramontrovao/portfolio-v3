@@ -7,13 +7,12 @@ import Link from "next/link";
 import { TAppRoute } from "types/TAppRoute";
 import { TSocialMedia, TCurriculum } from "types/THygraphData";
 
-import { meRoutes, portfolioRoutes } from "constants/appRoutes";
+import { moreRoutes } from "constants/appRoutes";
 
 import { Modal } from "fragments/Modal";
 
 type TData = {
-  portfolio: TAppRoute[];
-  me: TAppRoute[];
+  more: TAppRoute[];
   socialMedias: TSocialMedia[];
   hasCurriculum: boolean;
 };
@@ -29,18 +28,15 @@ export const CommandModal = ({
 }: ICommandModalProps) => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [modalData, setModalData] = useState<TData>({
-    portfolio: portfolioRoutes,
-    me: meRoutes,
+    more: moreRoutes,
     socialMedias: socialMedias,
     hasCurriculum: true,
   });
 
-  const hasPortfolioData = modalData.portfolio.length > 0;
-  const hasMeData = modalData.me.length > 0;
+  const hasMoreData = modalData.more.length > 0;
   const hasSocialMediaOrCurriculumData =
     modalData.socialMedias.length > 0 || modalData.hasCurriculum;
-  const hasData =
-    hasPortfolioData || hasMeData || hasSocialMediaOrCurriculumData;
+  const hasData = hasMoreData || hasSocialMediaOrCurriculumData;
 
   const curriculumInnerText = "currículo";
 
@@ -48,8 +44,7 @@ export const CommandModal = ({
     setModalIsOpen(false);
 
     return setModalData({
-      portfolio: portfolioRoutes,
-      me: meRoutes,
+      more: moreRoutes,
       socialMedias,
       hasCurriculum: true,
     });
@@ -59,19 +54,14 @@ export const CommandModal = ({
     const value = e.currentTarget.value.trim().toLowerCase();
 
     if (value === "") {
-      // resets data found
       return setModalData({
-        portfolio: portfolioRoutes,
-        me: meRoutes,
+        more: moreRoutes,
         socialMedias,
         hasCurriculum: true,
       });
     }
 
-    const portfolioUpdated = portfolioRoutes.filter(
-      (route) => route.name.toLowerCase().indexOf(value) !== -1
-    );
-    const meUpdated = meRoutes.filter(
+    const moreUpdated = moreRoutes.filter(
       (route) => route.name.toLowerCase().indexOf(value) !== -1
     );
     const socialMediasUpdated = socialMedias.filter(
@@ -81,8 +71,7 @@ export const CommandModal = ({
       curriculumInnerText.toLowerCase().indexOf(value) !== -1;
 
     return setModalData({
-      portfolio: portfolioUpdated,
-      me: meUpdated,
+      more: moreUpdated,
       socialMedias: socialMediasUpdated,
       hasCurriculum: curriculumUpdated,
     });
@@ -96,7 +85,8 @@ export const CommandModal = ({
         <a className="p-4 outline-0 flex justify-center items-center bg-gray-200 text-gray-900 text-2xl rounded-full transition-all duration-300 hover:opacity-80">
           <MagnifyingGlass />
         </a>
-      }>
+      }
+    >
       <main className="w-full">
         <header>
           <input
@@ -109,47 +99,21 @@ export const CommandModal = ({
 
         {hasData && (
           <main className="overflow-y-scroll h-80">
-            {hasPortfolioData && (
+            {hasMoreData && (
               <section>
                 <header className="px-4 pt-4">
-                  <span className="text-gray-200 text-md">portfolio</span>
+                  <span className="text-gray-200 text-md">saiba mais</span>
                 </header>
 
                 <main>
                   <ul>
-                    {modalData.portfolio.map((route) => (
+                    {modalData.more.map((route) => (
                       <li key={route.id}>
                         <Link
                           onClick={handleCloseModal}
                           className="group flex items-center gap-4 text-gray-400 text-lg p-4 w-full border-l-2 border-transparent hover:pl-6 hover:border-gray-400"
-                          href={route.path}>
-                          <span
-                            className="group-hover:text-gray-200 text-gray-400"
-                            dangerouslySetInnerHTML={{ __html: route.icon }}
-                          />
-                          {route.name}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </main>
-              </section>
-            )}
-
-            {hasMeData && (
-              <section>
-                <header className="px-4 pt-4">
-                  <span className="text-gray-200 text-md">eu</span>
-                </header>
-
-                <main>
-                  <ul>
-                    {modalData.me.map((route) => (
-                      <li key={route.id}>
-                        <Link
-                          onClick={handleCloseModal}
-                          className="group flex items-center gap-4 text-gray-400 text-lg p-4 w-full border-l-2 border-transparent hover:pl-6 hover:border-gray-400"
-                          href={route.path}>
+                          href={route.path}
+                        >
                           <span
                             className="group-hover:text-gray-200 text-gray-400"
                             dangerouslySetInnerHTML={{ __html: route.icon }}
@@ -177,7 +141,8 @@ export const CommandModal = ({
                           onClick={handleCloseModal}
                           className="group flex items-center gap-4 text-gray-400 text-lg p-4 w-full border-l-2 border-transparent hover:pl-6 hover:border-gray-400"
                           href={socialMedia.url}
-                          target="_blank">
+                          target="_blank"
+                        >
                           <span
                             className="group-hover:text-gray-200 text-gray-400"
                             dangerouslySetInnerHTML={{
@@ -194,7 +159,8 @@ export const CommandModal = ({
                           onClick={handleCloseModal}
                           className="group flex items-center gap-4 text-gray-400 text-lg p-4 w-full border-l-2 border-transparent hover:pl-6 hover:border-gray-400"
                           href={curriculum.file.url}
-                          target="_blank">
+                          target="_blank"
+                        >
                           <span
                             className="group-hover:text-gray-200 text-gray-400"
                             dangerouslySetInnerHTML={{ __html: curriculum.svg }}

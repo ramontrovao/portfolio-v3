@@ -1,13 +1,12 @@
 import { fetchHygraphQuery } from "utils/fetchHygraphQuery";
 
 import { IntroductionSection } from "./components/IntroductionSection";
-import { PortfolioSection } from "./components/PortfolioSection";
+import { MoreSection } from "./components/MoreSection";
 import { TechsSection } from "./components/TechsSection";
 import { AboutMeSection } from "./components/AboutMeSection";
 import { ExperienceAndEducation } from "./components/ExperienceAndEducation";
 import { ContactSection } from "./components/ContactSection";
 import { THomePageData } from "types/THygraphData";
-import { MeSection } from "./components/MeSection";
 
 const getHomeData = async () => {
   const query = `query HomeQuery {
@@ -95,12 +94,11 @@ export default async function Home() {
   return (
     <main>
       <IntroductionSection {...introductionProps} />
-      <PortfolioSection />
-      <MeSection />
-      <TechsSection {...techsProps} />
       <AboutMeSection {...aboutMeProps} />
       <ExperienceAndEducation {...experienceAndEducationProps} />
+      <TechsSection {...techsProps} />
       <ContactSection {...contactProps} />
+      <MoreSection />
     </main>
   );
 }
