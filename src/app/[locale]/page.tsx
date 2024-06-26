@@ -8,9 +8,12 @@ import { ExperienceAndEducation } from "./components/ExperienceAndEducation";
 import { ContactSection } from "./components/ContactSection";
 import { THomePageData } from "types/THygraphData";
 
-const getHomeData = async () => {
+const getHomeData = async (locale: string) => {
   const query = `query HomeQuery {
-    page(where: {slug: "home"}) {
+    page(
+    where: { slug: "home" }
+    locales: [${locale}]
+    ) {
       name
       headline
       aboutme {
@@ -61,8 +64,12 @@ const getHomeData = async () => {
   return fetchHygraphQuery(query);
 };
 
-export default async function Home() {
-  const { page } = (await getHomeData()) as THomePageData;
+export default async function Home({
+  params,
+}: {
+  params: { locale: "pt_BR" };
+}) {
+  const { page } = (await getHomeData(params.locale)) as THomePageData;
 
   const introductionProps = {
     name: page.name,
