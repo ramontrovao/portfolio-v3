@@ -64,11 +64,7 @@ const getHomeData = async (locale: string) => {
   return fetchHygraphQuery(query);
 };
 
-export default async function Home({
-  params,
-}: {
-  params: { locale: "pt_BR" };
-}) {
+export default async function Home({ params }: { params: { locale: "en" } }) {
   const { page } = (await getHomeData(params.locale)) as THomePageData;
 
   const introductionProps = {

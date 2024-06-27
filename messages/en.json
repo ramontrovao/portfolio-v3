@@ -12,7 +12,7 @@
     "technologies": "tech-no-lo-gies",
     "contact": "so, did you like what you saw? what do you think about us chatting?",
     "more": "know-more",
-    "projects_title": "project",
+    "projects_title": "projects",
     "projects_description": "my coolest and most incredible projects, the ones that i really enjoyed building! :D",
     "about_me_title": "about-me",
     "about_me_description": "get to know a little more about me and my story! =)",
@@ -21,8 +21,19 @@
     "donate_title": "donate",
     "donate_description": "buy me a coffee or a skin (if you want, obviously). :v"
   },
+  "projects": {
+    "projects_title": "pro-je-cts",
+    "projects_description": "only my greatest and coolest projects"
+  },
   "footer": {
     "made_with_love": "made with <3 by ramon trovão",
     "legal_rights": "© All rights reserved - Ramon Pinheiro Trovão da Silva"
+  },
+  "command_modal": {
+    "fast_links": "fast links",
+    "more": "know more",
+    "type_a_command": "type a command or search",
+    "close_suggestion": "press <highlight>ESC</highlight> to close",
+    "curriculum": "curriculum"
   }
 }
