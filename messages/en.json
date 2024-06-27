@@ -20,5 +20,9 @@
     "repositories_description": "do you want to see all my public works so far? this is the right place.",
     "donate_title": "donate",
     "donate_description": "buy me a coffee or a skin (if you want, obviously). :v"
+  },
+  "footer": {
+    "made_with_love": "made with <3 by ramon trovão",
+    "legal_rights": "© All rights reserved - Ramon Pinheiro Trovão da Silva"
   }
 }
