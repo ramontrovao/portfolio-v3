@@ -1,0 +1,24 @@
+{
+  "home": {
+    "hello": "hello, i'm ramon trovão :)",
+    "about_me": "about-me",
+    "get_in_touch": "get in touch!",
+    "experiences": "ex-pe-ri-en-cies",
+    "experience_content": "about {time} of experience",
+    "little_experience": "already used it in some personal projects",
+    "education": "e-du-ca-tion",
+    "see_more": "see more",
+    "see_more_techs": "see more techs",
+    "technologies": "tech-no-lo-gies",
+    "contact": "so, did you like what you saw? what do you think about us chatting?",
+    "more": "know-more",
+    "projects_title": "project",
+    "projects_description": "my coolest and most incredible projects, the ones that i really enjoyed building! :D",
+    "about_me_title": "about-me",
+    "about_me_description": "get to know a little more about me and my story! =)",
+    "repositories_title": "repositories",
+    "repositories_description": "do you want to see all my public works so far? this is the right place.",
+    "donate_title": "donate",
+    "donate_description": "buy me a coffee or a skin (if you want, obviously). :v"
+  }
+}

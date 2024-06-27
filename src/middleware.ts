@@ -1,22 +1,12 @@
 import { NextMiddleware, NextResponse } from "next/server";
+import createMiddleware from "next-intl/middleware";
 
-const locales = ["pt_BR"];
+const locales = ["pt", "en"];
 
-export const middleware: NextMiddleware = (req) => {
-  const { pathname } = req.nextUrl;
-
-  const pathnameHasLocale = locales.some(
-    (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
-  );
-
-  if (pathnameHasLocale) return;
-
-  const defaultLocale = "pt_BR";
-
-  req.nextUrl.pathname = `/${defaultLocale}${pathname}`;
-
-  return NextResponse.redirect(req.nextUrl);
-};
+export const middleware = createMiddleware({
+  locales,
+  defaultLocale: "pt",
+});
 
 export const config = {
   matcher: ["/((?!_next).*)"],

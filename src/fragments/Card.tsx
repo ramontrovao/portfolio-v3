@@ -20,11 +20,12 @@ export const Card = ({
 }: ICardProps) => {
   return (
     <motion.article
-      className={`w-full flex flex-col gap-4 min-w-full max-w-xl min-h-[7.5rem] p-4 border transition-all duration-300 ${
+      className={`w-full flex flex-col gap-4 min-h-[7.5rem] p-4 border transition-all duration-300 ${
         hasHoverAnimation && "hover:scale-95"
       } bg-gradient-to-r from-zinc-950 to-zinc-900 border-gray-500 rounded-md`}
       initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}>
+      whileInView={{ opacity: 1 }}
+    >
       <header className="flex justify-between items-center">
         <strong className="font-bold text-md text-gray-200">{cardName}</strong>
 

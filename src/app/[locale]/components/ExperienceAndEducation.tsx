@@ -2,6 +2,7 @@
 
 import { Card } from "fragments/Card";
 import { useArrayPagination } from "hooks/useArrayPagination";
+import { useTranslations } from "next-intl";
 import { TEducation, TExperience } from "types/THygraphData";
 
 interface IExperienceAndEducationProps {
@@ -13,6 +14,8 @@ export const ExperienceAndEducation = ({
   experiences,
   educations,
 }: IExperienceAndEducationProps) => {
+  const t = useTranslations("home");
+
   const experiencesWithPagination = useArrayPagination(3, experiences);
   const educationsWithPagination = useArrayPagination(3, educations);
 
@@ -32,7 +35,7 @@ export const ExperienceAndEducation = ({
         <article className="w-full md:w-1/2">
           <header>
             <h2 className="text-gray-200 text-5xl font-bold max-w-2xl text-center">
-              ex-pe-ri-ên-cias
+              {t("experiences")}
             </h2>
           </header>
 
@@ -57,8 +60,9 @@ export const ExperienceAndEducation = ({
           {!experiencesWithPagination.isOnLastPage && (
             <button
               onClick={handleNextExperiencesPage}
-              className="mt-4 bg-none border-none text-lg font-normal text-gray-400 transition-all duration-300 hover:opacity-80">
-              ver mais
+              className="mt-4 bg-none border-none text-lg font-normal text-gray-400 transition-all duration-300 hover:opacity-80"
+            >
+              {t("see_more")}
             </button>
           )}
         </article>
@@ -66,7 +70,7 @@ export const ExperienceAndEducation = ({
         <article className="w-full md:w-1/2">
           <header>
             <h2 className="text-gray-200 text-5xl font-bold max-w-2xl text-center">
-              e-du-ca-ção
+              {t("education")}
             </h2>
           </header>
 
@@ -91,7 +95,8 @@ export const ExperienceAndEducation = ({
           {!educationsWithPagination.isOnLastPage && (
             <button
               onClick={handleNextEducationsPage}
-              className="mt-4 bg-none border-none text-lg font-normal text-gray-400 transition-all duration-300 hover:opacity-80">
+              className="mt-4 bg-none border-none text-lg font-normal text-gray-400 transition-all duration-300 hover:opacity-80"
+            >
               ver mais
             </button>
           )}
