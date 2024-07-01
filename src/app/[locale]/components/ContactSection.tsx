@@ -40,7 +40,7 @@ export const ContactSection = ({
                   className="text-gray-400 transition-all duration-300 text-2xl font-normal text-center hover:opacity-80"
                   href={socialMedia.url}
                   target="_blank"
-                  title={`Visitar o meu ${socialMedia.name}`}
+                  title={t("visit_my", { link: socialMedia.name })}
                   dangerouslySetInnerHTML={{ __html: socialMedia.logoSvg }}
                 />
               </li>
@@ -50,7 +50,7 @@ export const ContactSection = ({
                 className="text-gray-400 transition-all duration-300 text-2xl font-normal text-center hover:opacity-80"
                 href={curriculumUrl}
                 target="_blank"
-                title={`Acesse meu currículo`}
+                title={t("access_my_curriculum")}
                 dangerouslySetInnerHTML={{ __html: curriculumSvg }}
               />
             </li>
