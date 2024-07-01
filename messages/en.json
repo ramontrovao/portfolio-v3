@@ -39,6 +39,10 @@
     "links_title": "{name} - my links :)",
     "portfolio": "portfolio"
   },
+  "donate": {
+    "donate_title": "buy me a coffee or a skin using the pix below =D (brazillian payment method)",
+    "donate_description": "in the name of Ramon Pinheiro Trovao da Silva"
+  },
   "footer": {
     "made_with_love": "made with <3 by ramon trovão",
     "legal_rights": "© All rights reserved - Ramon Pinheiro Trovão da Silva"
