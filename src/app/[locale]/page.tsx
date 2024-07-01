@@ -74,6 +74,7 @@ export default async function Home({ params }: { params: { locale: "en" } }) {
 
   const techsProps = {
     techs: page.technologies,
+    locale: params.locale,
   };
 
   const aboutMeProps = {

@@ -2,13 +2,56 @@
   "home": {
     "hello": "olá, sou ramon trovão :)",
     "about_me": "sobre-mim",
+    "get_in_touch": "entre em contato!",
     "experiences": "ex-pe-ri-ên-cias",
+    "experience_content": "por volta de {time} de experiência",
+    "little_experience": "já usei em alguns projetos pessoais",
     "education": "e-du-ca-ção",
-    "technologies": "tec-no-lo-gi-as",
+    "see_more": "ver mais",
+    "see_more_techs": "ver mais tecnologias",
+    "technologies": "te-cno-lo-gias",
+    "contact": "então, gostou do que viu? que tal conversarmos?",
     "more": "saiba-mais",
     "projects_title": "projetos",
-    "projects_description": "meus projetos mais legais e incríveis, os que eu gostei bastante de construir! :D",
-    "about_me_title": "sobre mim",
-    "about_me_description": "conheça um pouquinho mais sobre mim e sobre a minha história! =)"
+    "projects_description": "meus projetos mais legais e incríveis, os que eu realmente gostei de construir! :D",
+    "about_me_title": "sobre-mim",
+    "about_me_description": "conheça um pouco mais sobre mim e minha história! =)",
+    "repositories_title": "repositórios",
+    "repositories_description": "quer ver todos os meus trabalhos públicos até agora? este é o lugar certo.",
+    "donate_title": "donate",
+    "donate_description": "me pague um café ou uma skin (se você quiser, obviamente). :v",
+    "visit_my": "visite meu {link}",
+    "access_my_curriculum": "acesse meu currículo"
+  },
+  "projects": {
+    "projects_title": "pro-je-tos",
+    "projects_description": "apenas meus maiores e mais legais projetos",
+    "see_more_projects": "ver mais projetos"
+  },
+  "repositories": {
+    "repositories_title": "re-pos-i-tó-ri-os",
+    "repositories_description": "aqui estão todos os meus repositórios públicos listados =D",
+    "see_more_repositories": "ver mais repositórios",
+    "repository_of": "Repositório no github nomeado {name} com autor {author}",
+    "no_description": "sem descrição :("
+  },
+  "links": {
+    "links_title": "{name} - meus links :)",
+    "portfolio": "portfólio"
+  },
+  "donate": {
+    "donate_title": "me pague um café ou uma skin através do pix abaixo =D ",
+    "donate_description": "em nome de Ramon Pinheiro Trovão da Silva"
+  },
+  "footer": {
+    "made_with_love": "feito com <3 por ramon trovão",
+    "legal_rights": "© Todos os direitos reservados - Ramon Pinheiro Trovão da Silva"
+  },
+  "command_modal": {
+    "fast_links": "links rápidos",
+    "more": "saiba mais",
+    "type_a_command": "digite um comando ou pesquise",
+    "close_suggestion": "pressione <highlight>ESC</highlight> para fechar",
+    "curriculum": "currículo"
   }
 }
