@@ -3,6 +3,7 @@
 import { Button } from "fragments/Button";
 import { Project } from "fragments/Project";
 import { useArrayPagination } from "hooks/useArrayPagination";
+import { useTranslations } from "next-intl";
 import { TProject } from "types/THygraphData";
 
 interface IProjectsSectionProps {
@@ -10,6 +11,7 @@ interface IProjectsSectionProps {
 }
 
 export const ProjectsSection = ({ projects }: IProjectsSectionProps) => {
+  const t = useTranslations("projects");
   const { arrayUpdated, nextPage, isOnLastPage } = useArrayPagination(
     3,
     projects
@@ -20,25 +22,22 @@ export const ProjectsSection = ({ projects }: IProjectsSectionProps) => {
       <div className="max-w-6xl min-h-screen w-full m-auto px-4 py-32 flex gap-16 flex-col justify-center items-center">
         <header>
           <h2 className="text-gray-200 text-5xl font-bold max-w-2xl text-center">
-            pro-je-tos
+            {t("projects_title")}
           </h2>
 
           <p className="mt-4 text-gray-400 text-lg font-normal text-center">
-            somente os meus melhores e mais legais projetos
+            {t("projects_description")}
           </p>
         </header>
 
         <main className="w-full flex flex-col justify-center items-center gap-12">
           {(arrayUpdated as TProject[]).map((project) => (
-            <Project
-              key={project.id}
-              project={project}
-            />
+            <Project key={project.id} project={project} />
           ))}
         </main>
 
         {!isOnLastPage && (
-          <Button onClick={() => nextPage()}>ver mais projetos</Button>
+          <Button onClick={() => nextPage()}>{t("see_more_projects")}</Button>
         )}
       </div>
     </section>

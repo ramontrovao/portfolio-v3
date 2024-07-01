@@ -25,7 +25,8 @@
   },
   "projects": {
     "projects_title": "pro-je-cts",
-    "projects_description": "only my greatest and coolest projects"
+    "projects_description": "only my greatest and coolest projects",
+    "see_more_projects": "see more projects"
   },
   "footer": {
     "made_with_love": "made with <3 by ramon trovão",
