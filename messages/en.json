@@ -35,6 +35,10 @@
     "repository_of": "Repository on github named {name} with author {author}",
     "no_description": "no description :("
   },
+  "links": {
+    "links_title": "{name} - my links :)",
+    "portfolio": "portfolio"
+  },
   "footer": {
     "made_with_love": "made with <3 by ramon trovão",
     "legal_rights": "© All rights reserved - Ramon Pinheiro Trovão da Silva"
