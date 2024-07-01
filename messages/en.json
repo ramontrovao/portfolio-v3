@@ -28,6 +28,13 @@
     "projects_description": "only my greatest and coolest projects",
     "see_more_projects": "see more projects"
   },
+  "repositories": {
+    "repositories_title": "re-pos-i-tor-ies",
+    "repositories_description": "here are all my public repositories listed =D",
+    "see_more_repositories": "see more repositories",
+    "repository_of": "Repository on github named {name} with author {author}",
+    "no_description": "no description :("
+  },
   "footer": {
     "made_with_love": "made with <3 by ramon trovão",
     "legal_rights": "© All rights reserved - Ramon Pinheiro Trovão da Silva"

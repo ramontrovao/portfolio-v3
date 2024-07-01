@@ -1,17 +1,14 @@
 import { fetchGithubRepositories } from "utils/fetchGithubRepositories";
 import { RepositoriesSection } from "./components/RepositoriesSection";
 import { Metadata } from "next";
-
-const getRepositoriesData = async () => {
-  return fetchGithubRepositories();
-};
+import { useTranslations } from "next-intl";
 
 export const metadata: Metadata = {
-  title: "repositórios"
-}
+  title: "repositórios",
+};
 
 export default async function Repositories() {
-  const repositories = await getRepositoriesData();
+  const repositories = await fetchGithubRepositories();
 
   return (
     <main>
