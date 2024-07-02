@@ -8,6 +8,7 @@ import { fetchHygraphQuery } from "utils/fetchHygraphQuery";
 import { CommandModal } from "../components/CommandModal";
 import { ImageMotion } from "./ImageMotion";
 import { ProgressHeader } from "./ProgressHeader";
+import { SelectLanguage } from "components/SelectLanguage";
 
 const getHeaderData = async () => {
   const query = `query SocialMediasQuery {
@@ -45,9 +46,7 @@ export const Header = async () => {
       <ProgressHeader />
 
       <nav className="max-w-6xl w-full px-4 py-8 m-auto flex justify-between items-center">
-        <Link
-          className="transition-all duration-300 hover:opacity-80"
-          href="/">
+        <Link className="transition-all duration-300 hover:opacity-80" href="/">
           <ImageMotion
             src={logo}
             alt=""
@@ -57,10 +56,10 @@ export const Header = async () => {
           />
         </Link>
 
-        <CommandModal
-          socialMedias={socialMedias}
-          curriculum={curriculum}
-        />
+        <div className="flex gap-4 justi-center items-center">
+          <SelectLanguage />
+          <CommandModal socialMedias={socialMedias} curriculum={curriculum} />
+        </div>
       </nav>
     </header>
   );

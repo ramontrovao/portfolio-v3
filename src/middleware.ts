@@ -1,7 +1,6 @@
 import { NextMiddleware, NextResponse } from "next/server";
 import createMiddleware from "next-intl/middleware";
-
-const locales = ["pt", "en"];
+import { locales } from "constants/locale";
 
 export const middleware = createMiddleware({
   locales,
