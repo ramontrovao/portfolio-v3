@@ -56,7 +56,7 @@ export const Header = async () => {
           />
         </Link>
 
-        <div className="flex gap-4 justi-center items-center">
+        <div className="flex gap-2 justi-center items-center">
           <SelectLanguage />
           <CommandModal socialMedias={socialMedias} curriculum={curriculum} />
         </div>
