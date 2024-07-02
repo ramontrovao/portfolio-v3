@@ -20,8 +20,6 @@ export const TechsSection = ({ techs, locale }: ITechsSection) => {
   const { arrayUpdated, nextPage, isOnLastPage } = useArrayPagination(4, techs);
 
   const formatDate = (date: Date) => {
-    console.log(locale);
-
     return formatDistanceToNowStrict(date, {
       locale: locale === "pt" ? ptBR : en,
     });

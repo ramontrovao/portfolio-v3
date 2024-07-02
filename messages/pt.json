@@ -25,12 +25,12 @@
   },
   "projects": {
     "projects_title": "pro-je-tos",
-    "projects_description": "apenas meus maiores e mais legais projetos",
+    "projects_description": "apenas meus melhores e mais legais projetos",
     "see_more_projects": "ver mais projetos"
   },
   "repositories": {
     "repositories_title": "re-pos-i-tó-ri-os",
-    "repositories_description": "aqui estão todos os meus repositórios públicos listados =D",
+    "repositories_description": "aqui estão listados todos os meus repositórios públicos =D",
     "see_more_repositories": "ver mais repositórios",
     "repository_of": "Repositório no github nomeado {name} com autor {author}",
     "no_description": "sem descrição :("

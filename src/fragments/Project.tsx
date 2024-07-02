@@ -24,7 +24,8 @@ export const Project = ({
       target="_blank"
       className="relative w-full group max-md:pr-4 pl-4 py-4 max-w-[45rem] min-h-[15rem] flex gap-6 flex-wrap justify-center items-center overflow-hidden bg-gradient-to-r from-zinc-950 to-zinc-900 border border-gray-500 rounded-md md:flex-nowrap md:justify-between"
       initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}>
+      whileInView={{ opacity: 1 }}
+    >
       <div className="flex md:flex-[0.5] z-30 flex-col gap-6">
         <h2 className="text-gray-200 font-bold text-2xl">{name}</h2>
 
@@ -42,7 +43,7 @@ export const Project = ({
       </div>
 
       <Image
-        className="rounded-md md:absolute right-0 w-full md:-mr-5 transition-all duration-300 md:group-hover:-mr-0 md:max-w-[20rem]"
+        className="rounded-md right-0 w-full transition-all min-h-[11rem]  duration-300 md:-mr-10 md:absolute md:group-hover:-mr-5 md:max-w-[20rem]"
         src={wallpaper.url}
         width={1920}
         height={1080}
