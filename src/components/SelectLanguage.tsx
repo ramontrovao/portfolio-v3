@@ -1,20 +1,27 @@
 "use client";
 import { Globe } from "@phosphor-icons/react";
 import * as Select from "@radix-ui/react-select";
-import { useParams, useRouter } from "next/navigation";
 import brazil from "assets/brazil.svg";
 import usa from "assets/usa.svg";
+import { usePathname, useRouter } from "navigation";
 import Image from "next/image";
+import Link from "next/link";
+import { useParams } from "next/navigation";
 
 export const SelectLanguage = () => {
+  const pathname = usePathname();
   const router = useRouter();
   const params = useParams();
-  const language =
-    localStorage.getItem("lang") ?? params?.locale.toString() ?? "en";
+  const language = params?.locale?.toString();
 
   const onValueChange = (value: string) => {
-    localStorage.setItem("lang", value);
-    router.push(value);
+    router.replace(
+      // @ts-expect-error -- TypeScript will validate that only known `params`
+      // are used in combination with a given `pathname`. Since the two will
+      // always match for the current route, we can skip runtime checks.
+      { pathname, params },
+      { locale: value }
+    );
   };
 
   const languagesAvaiable = [
