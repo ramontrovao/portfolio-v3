@@ -12,7 +12,7 @@ export const SelectLanguage = () => {
   const pathname = usePathname();
   const router = useRouter();
   const params = useParams();
-  const language = params?.locale?.toString();
+  const language = localStorage.getItem("locale") ?? params?.locale?.toString();
 
   const onValueChange = (value: string) => {
     router.replace(
@@ -40,16 +40,24 @@ export const SelectLanguage = () => {
 
   return (
     <Select.Root onValueChange={onValueChange} defaultValue={language}>
-      <Select.Trigger className="p-4 outline-0 flex justify-center items-center bg-gray-200 text-gray-900 text-2xl rounded-full transition-all duration-300 hover:opacity-80">
-        <Globe />
-      </Select.Trigger>
+      <div className="flex flex-col">
+        <Select.Trigger className="p-4 outline-0 flex justify-center items-center bg-gray-200 text-gray-900 text-2xl rounded-full transition-all duration-300 hover:opacity-80">
+          <Globe />
+        </Select.Trigger>
 
-      <Select.Portal>
-        <Select.Content className="fixed z-50 right-[24.5%] top-[10%] hidden bg-zinc-900 rounded-lg">
-          <Select.Viewport className="p-4">
+        <Select.Content className="focus:shado">
+          <Select.Viewport className="mt-16 rounded-md bg-zinc-900 p-4 flex flex-col gap-2 ">
             {languagesAvaiable.map((locale) => (
               <Select.Item
-                className="cursor-pointer flex items-center gap-2 w-full h-10 text-md text-gray-100"
+                className={`border-[1px] p-2 rounded-md cursor-pointer flex items-center gap-2 w-full h-10 hover:outline-none text-md 
+                ${
+                  locale.value === language
+                    ? "border-white"
+                    : "border-transparent"
+                }
+                ${
+                  locale.value === language ? "text-gray-100" : "text-gray-300"
+                }`}
                 key={locale.value}
                 value={locale.value}
               >
@@ -60,7 +68,7 @@ export const SelectLanguage = () => {
             ))}
           </Select.Viewport>
         </Select.Content>
-      </Select.Portal>
+      </div>
     </Select.Root>
   );
 };
