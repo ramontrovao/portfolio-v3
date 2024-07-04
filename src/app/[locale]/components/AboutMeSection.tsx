@@ -4,6 +4,7 @@ import type { RichTextContent } from "@graphcms/rich-text-types";
 import { RichText } from "fragments/RichText";
 import { Button } from "fragments/Button";
 import { ImageMotion } from "fragments/ImageMotion";
+import { useTranslations } from "next-intl";
 
 interface IAboutMeProps {
   image: string;
@@ -11,14 +12,14 @@ interface IAboutMeProps {
 }
 
 export const AboutMeSection = ({ image, text }: IAboutMeProps) => {
+  const t = useTranslations("home");
+
   return (
-    <section
-      id="sobre-mim"
-      className="bg-zinc-950 w-full">
+    <section id="sobre-mim" className="bg-zinc-950 w-full">
       <div className="max-w-6xl w-full m-auto px-4 py-16 flex gap-16 flex-col justify-center items-center">
         <header>
           <h2 className="text-gray-200 text-5xl font-bold max-w-2xl text-center">
-            sobre-mim
+            {t("about_me")}
           </h2>
         </header>
 
@@ -43,7 +44,7 @@ export const AboutMeSection = ({ image, text }: IAboutMeProps) => {
             <RichText content={text} />
 
             <Link href="#contato">
-              <Button>entrar em contato!</Button>
+              <Button>{t("get_in_touch")}</Button>
             </Link>
           </div>
         </main>

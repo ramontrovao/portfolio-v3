@@ -1,3 +1,4 @@
+import { useTranslations } from "next-intl";
 import { TSocialMedia } from "types/THygraphData";
 
 interface IContactSectionProps {
@@ -15,13 +16,13 @@ export const ContactSection = ({
   curriculumUrl,
   curriculumSvg,
 }: IContactSectionProps) => {
+  const t = useTranslations("home");
+
   return (
-    <section
-      id="contato"
-      className="bg-zinc-950 w-full">
+    <section id="contato" className="bg-zinc-950 w-full">
       <div className="max-w-6xl w-full m-auto px-4 py-16 flex gap-16 flex-col justify-center items-center">
         <h2 className="text-gray-400 text-xl md:text-3xl font-normal max-w-2xl text-center">
-          e aí, gostou do que viu? o que acha da gente bater um papo?
+          {t("contact")}
         </h2>
 
         <strong className="text-gray-200 transition-all duration-300 hover:opacity-80 text-2xl md:text-4xl font-bold max-w-2xl text-center">
@@ -33,12 +34,13 @@ export const ContactSection = ({
             {socialMedias.map((socialMedia) => (
               <li
                 className="flex justify-center items-center"
-                key={socialMedia.id}>
+                key={socialMedia.id}
+              >
                 <a
                   className="text-gray-400 transition-all duration-300 text-2xl font-normal text-center hover:opacity-80"
                   href={socialMedia.url}
                   target="_blank"
-                  title={`Visitar o meu ${socialMedia.name}`}
+                  title={t("visit_my", { link: socialMedia.name })}
                   dangerouslySetInnerHTML={{ __html: socialMedia.logoSvg }}
                 />
               </li>
@@ -48,7 +50,7 @@ export const ContactSection = ({
                 className="text-gray-400 transition-all duration-300 text-2xl font-normal text-center hover:opacity-80"
                 href={curriculumUrl}
                 target="_blank"
-                title={`Acesse meu currículo`}
+                title={t("access_my_curriculum")}
                 dangerouslySetInnerHTML={{ __html: curriculumSvg }}
               />
             </li>

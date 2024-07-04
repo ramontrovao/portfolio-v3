@@ -3,6 +3,7 @@
 import { Button } from "fragments/Button";
 import { Card } from "fragments/Card";
 import { useArrayPagination } from "hooks/useArrayPagination";
+import { useTranslations } from "next-intl";
 import { TGithubRepository } from "types/TGithubData";
 
 interface IRepositoriesSectionProps {
@@ -12,6 +13,7 @@ interface IRepositoriesSectionProps {
 export const RepositoriesSection = ({
   repositories,
 }: IRepositoriesSectionProps) => {
+  const t = useTranslations("repositories");
   const publicRepositories = Array.isArray(repositories)
     ? repositories.filter(
         (repository) =>
@@ -30,11 +32,11 @@ export const RepositoriesSection = ({
       <div className="max-w-6xl min-h-screen w-full m-auto px-4 py-32 flex gap-16 flex-col items-center">
         <header>
           <h2 className="text-gray-200 text-5xl font-bold max-w-2xl text-center">
-            re-po-si-tó-rios
+            {t("repositories_title")}
           </h2>
 
           <p className="mt-4 text-gray-400 text-lg font-normal text-center">
-            aqui estão listados todos os meus repositórios públicos =D
+            {t("repositories_description")}
           </p>
         </header>
 
@@ -43,20 +45,25 @@ export const RepositoriesSection = ({
             <a
               className="w-full"
               target="_blank"
-              title={`Repositório do github de nome "${repository.name}" com autor ${repository.full_name}`}
+              title={t("repository_of", {
+                name: repository.name,
+                author: repository.full_name,
+              })}
               key={repository.id}
               href={repository.git_url}
             >
               <Card
                 cardName={repository.full_name}
-                cardDescription={repository.description ?? "sem descrição :("}
+                cardDescription={repository.description ?? t("no_description")}
               />
             </a>
           ))}
         </main>
 
         {!isOnLastPage && (
-          <Button onClick={() => nextPage()}>ver mais repostórios</Button>
+          <Button onClick={() => nextPage()}>
+            {t("see_more_repositories")}
+          </Button>
         )}
       </div>
     </section>

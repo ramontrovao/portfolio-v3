@@ -6,6 +6,8 @@ import { Poppins } from "next/font/google";
 
 import { Header } from "fragments/Header";
 import { Footer } from "fragments/Footer";
+import { getMessages } from "next-intl/server";
+import { NextIntlClientProvider } from "next-intl";
 
 const poppins = Poppins({ subsets: ["latin"], weight: ["400", "700"] });
 export const metadata: Metadata = {
@@ -34,17 +36,21 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const messages = await getMessages();
+
   return (
     <html lang="pt-BR">
       <body className={poppins.className}>
-        <Header />
-        {children}
-        <Footer />
+        <NextIntlClientProvider messages={messages}>
+          <Header />
+          {children}
+          <Footer />
+        </NextIntlClientProvider>
       </body>
       {process.env.GA4_ID && <GoogleAnalytics gaId={process.env.GA4_ID} />}
       {process.env.GTM_ID && <GoogleTagManager gtmId={process.env.GTM_ID} />}
