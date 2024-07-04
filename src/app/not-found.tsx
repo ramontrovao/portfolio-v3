@@ -1,16 +1,12 @@
-import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
 import hamud from "assets/hamud.gif";
 import { useTranslations } from "next-intl";
 import { getTranslations } from "next-intl/server";
+import { CommonProps } from "types/CommonProps";
 
-export const metadata: Metadata = {
-  title: "não encontrado",
-};
-
-export async function generateMetadata({ params: { locale } }) {
+export async function generateMetadata({ params: { locale } }: CommonProps) {
   const t = await getTranslations({ locale, namespace: "not_found" });
 
   return {
