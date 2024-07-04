@@ -1,8 +1,9 @@
 import { fetchGithubRepositories } from "utils/fetchGithubRepositories";
 import { RepositoriesSection } from "./components/RepositoriesSection";
 import { getTranslations } from "next-intl/server";
+import { CommonProps } from "types/CommonProps";
 
-export async function generateMetadata({ params: { locale } }) {
+export async function generateMetadata({ params: { locale } }: CommonProps) {
   const t = await getTranslations({ locale, namespace: "repositories" });
 
   return {

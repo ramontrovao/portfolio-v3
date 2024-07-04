@@ -2,8 +2,9 @@ import { fetchHygraphQuery } from "utils/fetchHygraphQuery";
 import type { TLinksPageData } from "types/THygraphData";
 import { LinksSection } from "./components/LinksSection";
 import { getTranslations } from "next-intl/server";
+import { CommonProps } from "types/CommonProps";
 
-export async function generateMetadata({ params: { locale } }) {
+export async function generateMetadata({ params: { locale } }: CommonProps) {
   const t = await getTranslations({ locale, namespace: "links" });
 
   return {

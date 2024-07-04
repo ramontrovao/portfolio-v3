@@ -8,6 +8,7 @@ import { ExperienceAndEducation } from "./components/ExperienceAndEducation";
 import { ContactSection } from "./components/ContactSection";
 import { getTranslations } from "next-intl/server";
 import { THomePageData } from "types/THygraphData";
+import { CommonProps } from "types/CommonProps";
 
 const getHomeData = async (locale: string) => {
   const query = `query HomeQuery {
@@ -65,7 +66,7 @@ const getHomeData = async (locale: string) => {
   return fetchHygraphQuery(query);
 };
 
-export async function generateMetadata({ params: { locale } }) {
+export async function generateMetadata({ params: { locale } }: CommonProps) {
   const t = await getTranslations({ locale, namespace: "home" });
 
   return {
