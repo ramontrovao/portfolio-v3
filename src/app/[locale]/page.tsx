@@ -6,6 +6,7 @@ import { TechsSection } from "./components/TechsSection";
 import { AboutMeSection } from "./components/AboutMeSection";
 import { ExperienceAndEducation } from "./components/ExperienceAndEducation";
 import { ContactSection } from "./components/ContactSection";
+import { getTranslations } from "next-intl/server";
 import { THomePageData } from "types/THygraphData";
 
 const getHomeData = async (locale: string) => {
@@ -63,6 +64,14 @@ const getHomeData = async (locale: string) => {
 
   return fetchHygraphQuery(query);
 };
+
+export async function generateMetadata({ params: { locale } }) {
+  const t = await getTranslations({ locale, namespace: "home" });
+
+  return {
+    title: t("title"),
+  };
+}
 
 export default async function Home({ params }: { params: { locale: "en" } }) {
   const { page } = (await getHomeData(params.locale)) as THomePageData;

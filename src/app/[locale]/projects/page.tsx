@@ -1,7 +1,15 @@
 import { fetchHygraphQuery } from "utils/fetchHygraphQuery";
 import { ProjectsSection } from "./components/ProjectsSection";
 import { TProjectsPageData } from "types/THygraphData";
-import { Metadata } from "next";
+import { getTranslations } from "next-intl/server";
+
+export async function generateMetadata({ params: { locale } }) {
+  const t = await getTranslations({ locale, namespace: "projects" });
+
+  return {
+    title: t("title"),
+  };
+}
 
 const getProjectsData = async (locale: string) => {
   const query = `query ProjectsQuery {
@@ -30,10 +38,6 @@ const getProjectsData = async (locale: string) => {
       `;
 
   return fetchHygraphQuery(query);
-};
-
-export const metadata: Metadata = {
-  title: "projetos",
 };
 
 export default async function Projects({ params }) {

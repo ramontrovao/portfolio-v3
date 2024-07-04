@@ -1,5 +1,6 @@
 {
   "home": {
+    "title": "home",
     "hello": "hello, i'm ramon trovão :)",
     "about_me": "about-me",
     "get_in_touch": "get in touch!",
@@ -24,11 +25,13 @@
     "access_my_curriculum": "access my curriculum"
   },
   "projects": {
+    "title": "projects",
     "projects_title": "pro-je-cts",
     "projects_description": "only my greatest and coolest projects",
     "see_more_projects": "see more projects"
   },
   "repositories": {
+    "title": "repositories",
     "repositories_title": "re-pos-i-tor-ies",
     "repositories_description": "here are all my public repositories listed =D",
     "see_more_repositories": "see more repositories",
@@ -36,10 +39,12 @@
     "no_description": "no description :("
   },
   "links": {
+    "title": "links",
     "links_title": "{name} - my links :)",
     "portfolio": "portfolio"
   },
   "donate": {
+    "title": "donate",
     "donate_title": "buy me a coffee or a skin using the pix below =D (brazillian payment method)",
     "donate_description": "in the name of Ramon Pinheiro Trovão da Silva"
   },
@@ -53,5 +58,10 @@
     "type_a_command": "type a command or search",
     "close_suggestion": "press <highlight>ESC</highlight> to close",
     "curriculum": "curriculum"
+  },
+  "not_found": {
+    "title": "not found",
+    "page_not_found": "page not found.",
+    "go_back": "press here to go to homepage"
   }
 }

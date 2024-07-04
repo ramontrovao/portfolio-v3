@@ -22,6 +22,7 @@ export const SelectLanguage = () => {
       { pathname, params },
       { locale: value }
     );
+    router.refresh();
   };
 
   const languagesAvaiable = [

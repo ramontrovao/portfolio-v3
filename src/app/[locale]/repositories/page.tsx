@@ -1,11 +1,14 @@
 import { fetchGithubRepositories } from "utils/fetchGithubRepositories";
 import { RepositoriesSection } from "./components/RepositoriesSection";
-import { Metadata } from "next";
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 
-export const metadata: Metadata = {
-  title: "repositórios",
-};
+export async function generateMetadata({ params: { locale } }) {
+  const t = await getTranslations({ locale, namespace: "repositories" });
+
+  return {
+    title: t("title"),
+  };
+}
 
 export default async function Repositories() {
   const repositories = await fetchGithubRepositories();
