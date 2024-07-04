@@ -4,7 +4,7 @@ import { locales } from "constants/locale";
 
 export const middleware = createMiddleware({
   locales,
-  defaultLocale: "pt",
+  defaultLocale: "en",
 });
 
 export const config = {
