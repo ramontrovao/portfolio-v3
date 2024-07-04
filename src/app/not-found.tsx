@@ -6,6 +6,8 @@ import { useTranslations } from "next-intl";
 import { getTranslations } from "next-intl/server";
 import { CommonProps } from "types/CommonProps";
 
+export const dynamic = "force-dynamic";
+
 export async function generateMetadata({ params: { locale } }: CommonProps) {
   const t = await getTranslations({ locale, namespace: "not_found" });
 
