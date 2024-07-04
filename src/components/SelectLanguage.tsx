@@ -3,6 +3,7 @@ import { Globe } from "@phosphor-icons/react";
 import * as Select from "@radix-ui/react-select";
 import brazil from "assets/brazil.svg";
 import usa from "assets/usa.svg";
+import { RadixSelectViewportMotion } from "fragments/RadixSelectViewportMotion";
 import { usePathname, useRouter } from "navigation";
 import Image from "next/image";
 import Link from "next/link";
@@ -45,8 +46,11 @@ export const SelectLanguage = () => {
           <Globe />
         </Select.Trigger>
 
-        <Select.Content className="focus:shado">
-          <Select.Viewport className="mt-16 rounded-md bg-zinc-900 p-4 flex flex-col gap-2 ">
+        <Select.Content className="mt-16 rounded-md bg-zinc-900 p-4 flex flex-col gap-2">
+          <RadixSelectViewportMotion
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+          >
             {languagesAvaiable.map((locale) => (
               <Select.Item
                 className={`border-[1px] p-2 rounded-md cursor-pointer flex items-center gap-2 w-full h-10 hover:outline-none text-md 
@@ -66,7 +70,7 @@ export const SelectLanguage = () => {
                 <Select.ItemText>{locale.label}</Select.ItemText>
               </Select.Item>
             ))}
-          </Select.Viewport>
+          </RadixSelectViewportMotion>
         </Select.Content>
       </div>
     </Select.Root>
