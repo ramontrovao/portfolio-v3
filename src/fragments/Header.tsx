@@ -3,37 +3,11 @@ import Link from "next/link";
 import logo from "assets/logo.svg";
 
 import { THeaderData } from "types/THygraphData";
-import { fetchHygraphQuery } from "utils/fetchHygraphQuery";
-
 import { CommandModal } from "../components/CommandModal";
 import { ImageMotion } from "./ImageMotion";
 import { ProgressHeader } from "./ProgressHeader";
 import { SelectLanguage } from "components/SelectLanguage";
-
-const getHeaderData = async () => {
-  const query = `query SocialMediasQuery {
-    page(where: {slug: "home"}) {
-      info {
-        socialMedias {
-          id
-          logoSvg
-          name
-          url
-        }
-        curriculum {
-          svg
-          file {
-            url
-          }
-        }
-      }
-    }
-  }
-  
-`;
-
-  return fetchHygraphQuery(query);
-};
+import { getHeaderData } from "services/getHeaderData";
 
 export const Header = async () => {
   const { page } = (await getHeaderData()) as THeaderData;
