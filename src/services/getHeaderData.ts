@@ -1,5 +1,5 @@
 import { THeaderData } from "types/THygraphData";
-import { fetchHygraphQuery } from "utils/fetchHygraphQuery";
+import { sendHygraphQuery } from "utils/sendHygraphQuery";
 
 export const getHeaderData = async () => {
   const query = `query SocialMediasQuery {
@@ -23,5 +23,5 @@ export const getHeaderData = async () => {
   
 `;
 
-  return fetchHygraphQuery<THeaderData>(query);
+  return sendHygraphQuery<THeaderData>(query);
 };

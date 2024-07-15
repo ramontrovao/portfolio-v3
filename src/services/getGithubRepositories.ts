@@ -1,6 +1,6 @@
 import { TGithubData } from "types/TGithubData";
 
-export const fetchGithubRepositories = async (): Promise<TGithubData> => {
+export const getGithubRepositories = async (): Promise<TGithubData> => {
   try {
     const res = await fetch(`https://api.github.com/users/ramontrovao/repos`, {
       method: "GET",

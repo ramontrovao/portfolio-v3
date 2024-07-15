@@ -1,4 +1,4 @@
-export const fetchHygraphQuery = async <TData>(
+export const sendHygraphQuery = async <TData>(
   query: string
 ): Promise<TData> => {
   try {
