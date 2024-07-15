@@ -35,7 +35,7 @@ export const TechsSection = ({ techs, locale }: ITechsSection) => {
         </header>
 
         <main className="w-full flex flex-col justify-center items-center md:grid md:grid-cols-2 md:place-items-center gap-4">
-          {(arrayUpdated as TTechnology[]).map((tech, index) => (
+          {arrayUpdated.map((tech, index) => (
             <Card
               cardName={tech.name}
               cardDescription={

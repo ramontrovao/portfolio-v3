@@ -1,4 +1,5 @@
 import { fetchHygraphQuery } from "utils/fetchHygraphQuery";
+import { THomePageData } from "types/THygraphData";
 
 export const getHomeData = async (locale: string) => {
   const query = `query HomeQuery {
@@ -53,5 +54,5 @@ export const getHomeData = async (locale: string) => {
     }
   }`;
 
-  return fetchHygraphQuery(query);
+  return fetchHygraphQuery<THomePageData>(query);
 };

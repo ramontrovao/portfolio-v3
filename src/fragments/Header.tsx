@@ -2,7 +2,6 @@ import Link from "next/link";
 
 import logo from "assets/logo.svg";
 
-import { THeaderData } from "types/THygraphData";
 import { CommandModal } from "../components/CommandModal";
 import { ImageMotion } from "./ImageMotion";
 import { ProgressHeader } from "./ProgressHeader";
@@ -10,7 +9,7 @@ import { SelectLanguage } from "components/SelectLanguage";
 import { getHeaderData } from "services/getHeaderData";
 
 export const Header = async () => {
-  const { page } = (await getHeaderData()) as THeaderData;
+  const { page } = await getHeaderData();
 
   const socialMedias = page.info.socialMedias;
   const curriculum = page.info.curriculum;

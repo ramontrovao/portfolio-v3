@@ -1,5 +1,4 @@
 import { ProjectsSection } from "./components/ProjectsSection";
-import { TProjectsPageData } from "types/THygraphData";
 import { getTranslations } from "next-intl/server";
 import { CommonProps } from "types/CommonProps";
 import { getProjectsData } from "services/getProjectsData";
@@ -13,7 +12,7 @@ export async function generateMetadata({ params: { locale } }: CommonProps) {
 }
 
 export default async function Projects({ params }: CommonProps) {
-  const { page } = (await getProjectsData(params.locale)) as TProjectsPageData;
+  const { page } = await getProjectsData(params.locale);
 
   return (
     <main>

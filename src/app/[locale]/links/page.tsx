@@ -1,4 +1,3 @@
-import type { TLinksPageData } from "types/THygraphData";
 import { LinksSection } from "./components/LinksSection";
 import { getTranslations } from "next-intl/server";
 import { CommonProps } from "types/CommonProps";
@@ -13,7 +12,7 @@ export async function generateMetadata({ params: { locale } }: CommonProps) {
 }
 
 export default async function Links() {
-  const { page } = (await getLinksData()) as TLinksPageData;
+  const { page } = await getLinksData();
 
   return (
     <main>

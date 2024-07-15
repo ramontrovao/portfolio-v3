@@ -1,3 +1,4 @@
+import { TProjectsPageData } from "types/THygraphData";
 import { fetchHygraphQuery } from "utils/fetchHygraphQuery";
 
 export const getProjectsData = async (locale: string) => {
@@ -26,5 +27,5 @@ export const getProjectsData = async (locale: string) => {
       }
       `;
 
-  return fetchHygraphQuery(query);
+  return fetchHygraphQuery<TProjectsPageData>(query);
 };

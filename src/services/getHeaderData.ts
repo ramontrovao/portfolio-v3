@@ -1,3 +1,4 @@
+import { THeaderData } from "types/THygraphData";
 import { fetchHygraphQuery } from "utils/fetchHygraphQuery";
 
 export const getHeaderData = async () => {
@@ -22,5 +23,5 @@ export const getHeaderData = async () => {
   
 `;
 
-  return fetchHygraphQuery(query);
+  return fetchHygraphQuery<THeaderData>(query);
 };

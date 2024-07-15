@@ -1,3 +1,4 @@
+import type { TLinksPageData } from "types/THygraphData";
 import { fetchHygraphQuery } from "utils/fetchHygraphQuery";
 
 export const getLinksData = async () => {
@@ -15,5 +16,5 @@ export const getLinksData = async () => {
     }
   }`;
 
-  return fetchHygraphQuery(query);
+  return fetchHygraphQuery<TLinksPageData>(query);
 };

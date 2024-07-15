@@ -5,7 +5,6 @@ import { AboutMeSection } from "./components/AboutMeSection";
 import { ExperienceAndEducation } from "./components/ExperienceAndEducation";
 import { ContactSection } from "./components/ContactSection";
 import { getTranslations } from "next-intl/server";
-import { THomePageData } from "types/THygraphData";
 import { CommonProps } from "types/CommonProps";
 import { getHomeData } from "services/getHomeData";
 
@@ -18,7 +17,7 @@ export async function generateMetadata({ params: { locale } }: CommonProps) {
 }
 
 export default async function Home({ params }: { params: { locale: "en" } }) {
-  const { page } = (await getHomeData(params.locale)) as THomePageData;
+  const { page } = await getHomeData(params.locale);
 
   const introductionProps = {
     name: page.name,
