@@ -1,5 +1,5 @@
 import type { TLinksPageData } from "types/THygraphData";
-import { sendHygraphQuery } from "utils/sendHygraphQuery";
+import { sendHygraphQuery } from "services/sendHygraphQuery";
 
 export const getLinksData = async () => {
   const query = `query LinksQuery {

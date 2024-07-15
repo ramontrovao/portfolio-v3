@@ -1,5 +1,5 @@
 import { THeaderData } from "types/THygraphData";
-import { sendHygraphQuery } from "utils/sendHygraphQuery";
+import { sendHygraphQuery } from "services/sendHygraphQuery";
 
 export const getHeaderData = async () => {
   const query = `query SocialMediasQuery {

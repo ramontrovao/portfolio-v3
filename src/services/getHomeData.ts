@@ -1,4 +1,4 @@
-import { sendHygraphQuery } from "utils/sendHygraphQuery";
+import { sendHygraphQuery } from "services/sendHygraphQuery";
 import { THomePageData } from "types/THygraphData";
 
 export const getHomeData = async (locale: string) => {

@@ -1,5 +1,5 @@
 import { TProjectsPageData } from "types/THygraphData";
-import { sendHygraphQuery } from "utils/sendHygraphQuery";
+import { sendHygraphQuery } from "services/sendHygraphQuery";
 
 export const getProjectsData = async (locale: string) => {
   const query = `query ProjectsQuery {
