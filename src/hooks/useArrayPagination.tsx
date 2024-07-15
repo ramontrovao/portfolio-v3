@@ -1,17 +1,17 @@
 import { useState } from "react";
 
-export const useArrayPagination = (
+export const useArrayPagination = <TElement,>(
   elementsPerPage: number,
-  array: unknown[]
+  array: TElement[]
 ) => {
-  const [arrayUpdated, setArrayUpdated] = useState<unknown[]>(
+  const [arrayUpdated, setArrayUpdated] = useState<TElement[]>(
     array.slice(0, elementsPerPage)
   );
 
   const isOnLastPage = array.length === arrayUpdated.length;
 
   const nextPage = () => {
-    let nextPageElements: unknown[] = [];
+    let nextPageElements: TElement[] = [];
 
     if (array.length === arrayUpdated.length) {
       return;

@@ -16,8 +16,14 @@ export const ExperienceAndEducation = ({
 }: IExperienceAndEducationProps) => {
   const t = useTranslations("home");
 
-  const experiencesWithPagination = useArrayPagination(3, experiences);
-  const educationsWithPagination = useArrayPagination(3, educations);
+  const experiencesWithPagination = useArrayPagination<TExperience>(
+    3,
+    experiences
+  );
+  const educationsWithPagination = useArrayPagination<TEducation>(
+    3,
+    educations
+  );
 
   const sliceFullDate = (date: string) => {
     const slicedDate = date.slice(0, 7);
@@ -26,7 +32,6 @@ export const ExperienceAndEducation = ({
   };
 
   const handleNextExperiencesPage = () => experiencesWithPagination.nextPage();
-
   const handleNextEducationsPage = () => educationsWithPagination.nextPage();
 
   return (
@@ -40,21 +45,19 @@ export const ExperienceAndEducation = ({
           </header>
 
           <main className="w-full mt-8 flex flex-col justify-center items-center gap-4">
-            {(experiencesWithPagination.arrayUpdated as TExperience[]).map(
-              (experience) => (
-                <Card
-                  cardName={experience.name}
-                  rightText={`${sliceFullDate(experience.startDate)} ~ ${
-                    experience.endDate
-                      ? sliceFullDate(experience.endDate)
-                      : "atual"
-                  }`}
-                  rightTextSize="md"
-                  cardDescription={experience.shortDescription}
-                  key={experience.id}
-                />
-              )
-            )}
+            {experiencesWithPagination.arrayUpdated.map((experience) => (
+              <Card
+                cardName={experience.name}
+                rightText={`${sliceFullDate(experience.startDate)} ~ ${
+                  experience.endDate
+                    ? sliceFullDate(experience.endDate)
+                    : "atual"
+                }`}
+                rightTextSize="md"
+                cardDescription={experience.shortDescription}
+                key={experience.id}
+              />
+            ))}
           </main>
 
           {!experiencesWithPagination.isOnLastPage && (
@@ -75,21 +78,17 @@ export const ExperienceAndEducation = ({
           </header>
 
           <main className="w-full mt-8 flex flex-col justify-center items-center gap-4">
-            {(educationsWithPagination.arrayUpdated as TEducation[]).map(
-              (education) => (
-                <Card
-                  cardName={education.name}
-                  rightText={`${sliceFullDate(education.startDate)} ~ ${
-                    education.endDate
-                      ? sliceFullDate(education.endDate)
-                      : "atual"
-                  }`}
-                  rightTextSize="md"
-                  cardDescription={education.shortDescription}
-                  key={education.id}
-                />
-              )
-            )}
+            {educationsWithPagination.arrayUpdated.map((education) => (
+              <Card
+                cardName={education.name}
+                rightText={`${sliceFullDate(education.startDate)} ~ ${
+                  education.endDate ? sliceFullDate(education.endDate) : "atual"
+                }`}
+                rightTextSize="md"
+                cardDescription={education.shortDescription}
+                key={education.id}
+              />
+            ))}
           </main>
 
           {!educationsWithPagination.isOnLastPage && (
