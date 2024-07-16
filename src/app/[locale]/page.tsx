@@ -1,5 +1,3 @@
-import { fetchHygraphQuery } from "utils/fetchHygraphQuery";
-
 import { IntroductionSection } from "./components/IntroductionSection";
 import { MoreSection } from "./components/MoreSection";
 import { TechsSection } from "./components/TechsSection";
@@ -7,64 +5,8 @@ import { AboutMeSection } from "./components/AboutMeSection";
 import { ExperienceAndEducation } from "./components/ExperienceAndEducation";
 import { ContactSection } from "./components/ContactSection";
 import { getTranslations } from "next-intl/server";
-import { THomePageData } from "types/THygraphData";
 import { CommonProps } from "types/CommonProps";
-
-const getHomeData = async (locale: string) => {
-  const query = `query HomeQuery {
-    page(
-    where: { slug: "home" }
-    locales: [${locale}]
-    ) {
-      name
-      headline
-      aboutme {
-        raw
-      }
-      educations {
-        id
-        name
-        startDate
-        endDate
-        shortDescription
-      }
-      aboutPicture {
-        url
-      }
-      experiences {
-        id
-        name
-        startDate
-        endDate
-        shortDescription
-      }
-      technologies {
-        id
-        name
-        iconSvg
-        startDate
-      }
-      info {
-        email
-        socialMedias {
-          id
-          name
-          logoSvg
-          url
-        }
-        curriculum {
-          svg
-          file {
-            url
-          }
-        }
-        phone
-      }
-    }
-  }`;
-
-  return fetchHygraphQuery(query);
-};
+import { getHomeData } from "services/getHomeData";
 
 export async function generateMetadata({ params: { locale } }: CommonProps) {
   const t = await getTranslations({ locale, namespace: "home" });
@@ -75,7 +17,7 @@ export async function generateMetadata({ params: { locale } }: CommonProps) {
 }
 
 export default async function Home({ params }: { params: { locale: "en" } }) {
-  const { page } = (await getHomeData(params.locale)) as THomePageData;
+  const { page } = await getHomeData(params.locale);
 
   const introductionProps = {
     name: page.name,

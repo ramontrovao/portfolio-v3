@@ -13,7 +13,7 @@ export const SelectLanguage = () => {
   const pathname = usePathname();
   const router = useRouter();
   const params = useParams();
-  const language = localStorage.getItem("locale") ?? params?.locale?.toString();
+  const language = params.locale.toString();
 
   const onValueChange = (value: string) => {
     router.replace(

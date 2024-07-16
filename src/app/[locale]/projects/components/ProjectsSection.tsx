@@ -12,7 +12,7 @@ interface IProjectsSectionProps {
 
 export const ProjectsSection = ({ projects }: IProjectsSectionProps) => {
   const t = useTranslations("projects");
-  const { arrayUpdated, nextPage, isOnLastPage } = useArrayPagination(
+  const { arrayUpdated, nextPage, isOnLastPage } = useArrayPagination<TProject>(
     3,
     projects
   );
@@ -31,7 +31,7 @@ export const ProjectsSection = ({ projects }: IProjectsSectionProps) => {
         </header>
 
         <main className="w-full flex flex-col justify-center items-center gap-12">
-          {(arrayUpdated as TProject[]).map((project) => (
+          {arrayUpdated.map((project) => (
             <Project key={project.id} project={project} />
           ))}
         </main>

@@ -22,10 +22,8 @@ export const RepositoriesSection = ({
       )
     : [];
 
-  const { arrayUpdated, nextPage, isOnLastPage } = useArrayPagination(
-    8,
-    publicRepositories
-  );
+  const { arrayUpdated, nextPage, isOnLastPage } =
+    useArrayPagination<TGithubRepository>(8, publicRepositories);
 
   return (
     <section className="bg-zinc-950 w-full">
@@ -41,7 +39,7 @@ export const RepositoriesSection = ({
         </header>
 
         <main className="w-full flex flex-col justify-center items-center md:grid md:grid-cols-2 md:place-items-center gap-4">
-          {(arrayUpdated as TGithubRepository[]).map((repository) => (
+          {arrayUpdated.map((repository) => (
             <a
               className="w-full"
               target="_blank"
