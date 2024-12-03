@@ -55,7 +55,7 @@
   "command_modal": {
     "fast_links": "fast links",
     "more": "know more",
-    "type_a_command": "type a command or search",
+    "search_something": "search something",
     "close_suggestion": "press <highlight>ESC</highlight> to close",
     "curriculum": "curriculum"
   },
