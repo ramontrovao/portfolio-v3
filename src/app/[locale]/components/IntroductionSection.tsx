@@ -1,6 +1,6 @@
 "use client";
 
-import { ImageMotion } from "fragments/ImageMotion";
+import { ImageMotion } from "components/ImageMotion";
 import { useTranslations } from "next-intl";
 
 interface IIntroductionSectionProps {

@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import hamud from "assets/hamud.gif";
 import { useTranslations } from "next-intl";
 import { getTranslations } from "next-intl/server";
 import { CommonProps } from "types/CommonProps";
@@ -26,7 +25,7 @@ export default function NotFound() {
           <div className="flex flex-col justify-center items-center gap-4">
             <Image
               className="mb-10 rounded-lg"
-              src={hamud}
+              src="/images/hamud.svg"
               alt=""
               aria-hidden
             />

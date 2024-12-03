@@ -1,19 +1,16 @@
 "use client";
-import { Globe } from "@phosphor-icons/react";
 import * as Select from "@radix-ui/react-select";
-import brazil from "assets/brazil.svg";
-import usa from "assets/usa.svg";
-import { RadixSelectViewportMotion } from "fragments/RadixSelectViewportMotion";
+import { Globe } from "@phosphor-icons/react";
+import { RadixSelectViewportMotion } from "components/RadixSelectViewportMotion";
 import { usePathname, useRouter } from "navigation";
 import Image from "next/image";
-import Link from "next/link";
 import { useParams } from "next/navigation";
 
 export const SelectLanguage = () => {
   const pathname = usePathname();
   const router = useRouter();
   const params = useParams();
-  const language = params.locale.toString();
+  const language = params?.locale?.toString();
 
   const onValueChange = (value: string) => {
     router.replace(
@@ -30,12 +27,28 @@ export const SelectLanguage = () => {
     {
       value: "en",
       label: "english",
-      icon: <Image alt="" src={usa} width={25} height={25} />,
+      icon: (
+        <Image
+          alt=""
+          aria-hidden
+          src="/images/usa.svg"
+          width={25}
+          height={25}
+        />
+      ),
     },
     {
       value: "pt",
       label: "português",
-      icon: <Image alt="" src={brazil} width={25} height={25} />,
+      icon: (
+        <Image
+          alt=""
+          aria-hidden
+          src="/images/brazil.svg"
+          width={25}
+          height={25}
+        />
+      ),
     },
   ];
 

@@ -5,7 +5,7 @@ import { MagnifyingGlass } from "@phosphor-icons/react";
 
 import { TSocialMedia, TCurriculum } from "types/THygraphData";
 
-import { Modal } from "fragments/Modal";
+import { Modal } from "components/Modal";
 import { useTranslations } from "next-intl";
 
 type TData = {
@@ -48,15 +48,11 @@ export const CommandModal = ({
 
     if (value === "") {
       return setModalData({
-        more: moreRoutes,
         socialMedias,
         hasCurriculum: true,
       });
     }
 
-    const moreUpdated = moreRoutes.filter(
-      (route) => route.name.toLowerCase().indexOf(value) !== -1
-    );
     const socialMediasUpdated = socialMedias.filter(
       (socialMedia) => socialMedia.name.toLowerCase().indexOf(value) !== -1
     );
@@ -64,7 +60,6 @@ export const CommandModal = ({
       curriculumInnerText.toLowerCase().indexOf(value) !== -1;
 
     return setModalData({
-      more: moreUpdated,
       socialMedias: socialMediasUpdated,
       hasCurriculum: curriculumUpdated,
     });
@@ -75,7 +70,6 @@ export const CommandModal = ({
       isOpen={modalIsOpen}
       onOpenChange={setModalIsOpen}
       title={tCommandModal("search_something")}
-      isTitleInvisible
       triggerComponent={
         <a className="p-4 outline-0 flex justify-center items-center bg-gray-200 text-gray-900 text-2xl rounded-full transition-all duration-300 hover:opacity-80">
           <MagnifyingGlass />
@@ -93,7 +87,7 @@ export const CommandModal = ({
         </header>
 
         {hasData && (
-          <main className="overflow-y-scroll h-80">
+          <main className="h-80">
             <section>
               <header className="px-4 pt-4">
                 <span className="text-gray-200 text-md">

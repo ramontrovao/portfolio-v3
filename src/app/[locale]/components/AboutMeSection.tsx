@@ -1,9 +1,9 @@
 import Link from "next/link";
 import type { RichTextContent } from "@graphcms/rich-text-types";
 
-import { RichText } from "fragments/RichText";
-import { Button } from "fragments/Button";
-import { ImageMotion } from "fragments/ImageMotion";
+import { RichText } from "components/RichText";
+import { Button } from "components/Button";
+import { ImageMotion } from "components/ImageMotion";
 import { useTranslations } from "next-intl";
 
 interface IAboutMeProps {

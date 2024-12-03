@@ -38,7 +38,7 @@ export const LinksSection = ({ links, name }: ILinksSectionProps) => {
             >
               <Image
                 className="w-5"
-                src={logo}
+                src="images/logo.svg"
                 width={350}
                 height={350}
                 alt=""

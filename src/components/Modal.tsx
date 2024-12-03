@@ -2,8 +2,8 @@
 
 import { ReactNode, Dispatch, SetStateAction } from "react";
 import * as RadixDialog from "@radix-ui/react-dialog";
+import * as VisuallyHidden from "@radix-ui/react-visually-hidden";
 import { RadixDialogContentMotion } from "./RadixDialogContentMotion";
-import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 
 interface IModalProps {
   children: ReactNode;
@@ -12,16 +12,12 @@ interface IModalProps {
   onOpenChange: Dispatch<SetStateAction<boolean>>;
 
   title?: string;
-  isTitleInvisible?: boolean;
-  closeComponent?: ReactNode;
 }
 
 export const Modal = ({
   title,
-  closeComponent,
   triggerComponent,
   children,
-  isTitleInvisible = false,
   isOpen,
   onOpenChange,
 }: IModalProps) => (
@@ -35,20 +31,11 @@ export const Modal = ({
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
         >
-          {title ||
-            (closeComponent && (
-              <header className="w-full p-4 flex justify-between items-center">
-                {title && (
-                  <VisuallyHidden asChild>
-                    <RadixDialog.Title>{title}</RadixDialog.Title>
-                  </VisuallyHidden>
-                )}
-
-                {closeComponent && (
-                  <RadixDialog.Close>{closeComponent}</RadixDialog.Close>
-                )}
-              </header>
-            ))}
+          {title && (
+            <RadixDialog.Title>
+              <VisuallyHidden.Root>{title}</VisuallyHidden.Root>
+            </RadixDialog.Title>
+          )}
 
           {children}
         </RadixDialogContentMotion>
