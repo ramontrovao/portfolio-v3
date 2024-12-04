@@ -28,7 +28,7 @@ export default function NotFound() {
               className="mb-10 rounded-lg"
               width={200}
               height={200}
-              src="/images/hamud.svg"
+              src="/images/hamud.gif"
               alt=""
               aria-hidden
             />
