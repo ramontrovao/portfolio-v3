@@ -1,19 +1,16 @@
 "use client";
-import { Globe } from "@phosphor-icons/react";
 import * as Select from "@radix-ui/react-select";
-import brazil from "assets/brazil.svg";
-import usa from "assets/usa.svg";
-import { RadixSelectViewportMotion } from "fragments/RadixSelectViewportMotion";
+import { Globe } from "@phosphor-icons/react";
+import { RadixSelectViewportMotion } from "components/RadixSelectViewportMotion";
 import { usePathname, useRouter } from "navigation";
 import Image from "next/image";
-import Link from "next/link";
 import { useParams } from "next/navigation";
 
 export const SelectLanguage = () => {
   const pathname = usePathname();
   const router = useRouter();
   const params = useParams();
-  const language = params.locale.toString();
+  const language = params?.locale?.toString();
 
   const onValueChange = (value: string) => {
     router.replace(
@@ -29,13 +26,22 @@ export const SelectLanguage = () => {
   const languagesAvaiable = [
     {
       value: "en",
-      label: "english",
-      icon: <Image alt="" src={usa} width={25} height={25} />,
+      label: "en-us",
+      icon: (
+        <Image alt="english" src="/images/usa.svg" width={30} height={30} />
+      ),
     },
     {
       value: "pt",
-      label: "português",
-      icon: <Image alt="" src={brazil} width={25} height={25} />,
+      label: "pt-br",
+      icon: (
+        <Image
+          alt="português"
+          src="/images/brazil.svg"
+          width={30}
+          height={30}
+        />
+      ),
     },
   ];
 
@@ -66,8 +72,9 @@ export const SelectLanguage = () => {
                 value={locale.value}
               >
                 <Select.Icon>{locale.icon}</Select.Icon>
-
-                <Select.ItemText>{locale.label}</Select.ItemText>
+                <Select.ItemText>
+                  <span className="text-sm">{locale.label}</span>
+                </Select.ItemText>
               </Select.Item>
             ))}
           </RadixSelectViewportMotion>

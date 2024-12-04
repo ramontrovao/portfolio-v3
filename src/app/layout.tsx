@@ -4,8 +4,8 @@ import type { Metadata } from "next";
 import { GoogleTagManager, GoogleAnalytics } from "@next/third-parties/google";
 import { Poppins } from "next/font/google";
 
-import { Header } from "fragments/Header";
-import { Footer } from "fragments/Footer";
+import { Header } from "components/Header";
+import { Footer } from "components/Footer";
 import { getMessages } from "next-intl/server";
 import { NextIntlClientProvider } from "next-intl";
 
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     default: "início | ramon dev </>",
   },
   description:
-    "desenvolvedor front-end apaixonado por tecnologia desde pequeno! :)",
+    "desenvolvedor mobile apaixonado por tecnologia desde pequeno! :)",
   openGraph: {
     type: "website",
     url: "https://ramontrovao.dev",

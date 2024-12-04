@@ -1,4 +1,3 @@
-import { NextMiddleware, NextResponse } from "next/server";
 import createMiddleware from "next-intl/middleware";
 import { locales } from "constants/locale";
 
@@ -8,5 +7,5 @@ export const middleware = createMiddleware({
 });
 
 export const config = {
-  matcher: ["/((?!_next).*)"],
+  matcher: ["/((?!_next|.*\\..*).*)"],
 };

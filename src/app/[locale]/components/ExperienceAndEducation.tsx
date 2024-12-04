@@ -1,6 +1,6 @@
 "use client";
 
-import { Card } from "fragments/Card";
+import { Card } from "components/Card";
 import { useArrayPagination } from "hooks/useArrayPagination";
 import { useTranslations } from "next-intl";
 import { TEducation, TExperience } from "types/THygraphData";

@@ -1,8 +1,6 @@
 import Link from "next/link";
 
-import logo from "assets/logo.svg";
-
-import { CommandModal } from "../components/CommandModal";
+import { CommandModal } from "./CommandModal";
 import { ImageMotion } from "./ImageMotion";
 import { ProgressHeader } from "./ProgressHeader";
 import { SelectLanguage } from "components/SelectLanguage";
@@ -21,7 +19,8 @@ export const Header = async () => {
       <nav className="max-w-6xl w-full px-4 py-8 m-auto flex justify-between items-center">
         <Link className="transition-all duration-300 hover:opacity-80" href="/">
           <ImageMotion
-            src={logo}
+            priority
+            src="/images/logo.svg"
             alt=""
             width={400}
             height={650}

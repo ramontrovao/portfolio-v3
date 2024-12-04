@@ -1,6 +1,4 @@
 import Image from "next/image";
-
-import logo from "assets/logo.svg";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
 
@@ -17,8 +15,9 @@ export const Footer = () => {
 
         <Link href="#" className="transition-all duration-300 hover:opacity-80">
           <Image
+            priority
             className="max-w-[2rem]"
-            src={logo}
+            src="/images/logo.svg"
             alt=""
             width={400}
             height={400}

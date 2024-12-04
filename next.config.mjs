@@ -1,18 +1,8 @@
 import createNextIntlPlugin from "next-intl/plugin";
-const withNextIntl = createNextIntlPlugin();
+const withNextIntl = createNextIntlPlugin("./src/i18n/request.ts");
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  async redirects() {
-    return [
-      {
-        source: "/video-projeto-integrador",
-        destination: process.env.SECRET_YOUTUBE_URL,
-        permanent: false,
-        basePath: false,
-      },
-    ];
-  },
   images: {
     remotePatterns: [
       {

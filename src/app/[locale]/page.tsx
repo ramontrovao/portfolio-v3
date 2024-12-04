@@ -1,6 +1,4 @@
 import { IntroductionSection } from "./components/IntroductionSection";
-import { MoreSection } from "./components/MoreSection";
-import { TechsSection } from "./components/TechsSection";
 import { AboutMeSection } from "./components/AboutMeSection";
 import { ExperienceAndEducation } from "./components/ExperienceAndEducation";
 import { ContactSection } from "./components/ContactSection";
@@ -8,25 +6,26 @@ import { getTranslations } from "next-intl/server";
 import { CommonProps } from "types/CommonProps";
 import { getHomeData } from "services/getHomeData";
 
-export async function generateMetadata({ params: { locale } }: CommonProps) {
-  const t = await getTranslations({ locale, namespace: "home" });
+interface HomeProps {
+  params: Promise<{ locale: "en" }>;
+}
+
+export async function generateMetadata(props: CommonProps) {
+  const { locale } = await props.params;
+  const t = await getTranslations({ locale: locale, namespace: "home" });
 
   return {
     title: t("title"),
   };
 }
 
-export default async function Home({ params }: { params: { locale: "en" } }) {
+export default async function Home(props: HomeProps) {
+  const params = await props.params;
   const { page } = await getHomeData(params.locale);
 
   const introductionProps = {
     name: page.name,
     headline: page.headline,
-  };
-
-  const techsProps = {
-    techs: page.technologies,
-    locale: params.locale,
   };
 
   const aboutMeProps = {
@@ -52,9 +51,7 @@ export default async function Home({ params }: { params: { locale: "en" } }) {
       <IntroductionSection {...introductionProps} />
       <AboutMeSection {...aboutMeProps} />
       <ExperienceAndEducation {...experienceAndEducationProps} />
-      <TechsSection {...techsProps} />
       <ContactSection {...contactProps} />
-      <MoreSection />
     </main>
   );
 }

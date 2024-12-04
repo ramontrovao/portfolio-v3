@@ -3,7 +3,8 @@ import { getTranslations } from "next-intl/server";
 import { CommonProps } from "types/CommonProps";
 import { getLinksData } from "services/getLinksData";
 
-export async function generateMetadata({ params: { locale } }: CommonProps) {
+export async function generateMetadata(props: CommonProps) {
+  const { locale } = await props.params;
   const t = await getTranslations({ locale, namespace: "links" });
 
   return {
