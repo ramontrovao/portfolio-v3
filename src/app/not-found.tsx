@@ -7,7 +7,8 @@ import { CommonProps } from "types/CommonProps";
 
 export const dynamic = "force-dynamic";
 
-export async function generateMetadata({ params: { locale } }: CommonProps) {
+export async function generateMetadata(props: CommonProps) {
+  const { locale } = await props.params;
   const t = await getTranslations({ locale, namespace: "not_found" });
 
   return {
@@ -25,6 +26,8 @@ export default function NotFound() {
           <div className="flex flex-col justify-center items-center gap-4">
             <Image
               className="mb-10 rounded-lg"
+              width={200}
+              height={200}
               src="/images/hamud.svg"
               alt=""
               aria-hidden

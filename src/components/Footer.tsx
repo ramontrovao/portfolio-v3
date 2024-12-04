@@ -15,8 +15,9 @@ export const Footer = () => {
 
         <Link href="#" className="transition-all duration-300 hover:opacity-80">
           <Image
+            priority
             className="max-w-[2rem]"
-            src="images/logo.svg"
+            src="/images/logo.svg"
             alt=""
             width={400}
             height={400}

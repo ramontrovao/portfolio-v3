@@ -26,27 +26,20 @@ export const SelectLanguage = () => {
   const languagesAvaiable = [
     {
       value: "en",
-      label: "english",
+      label: "en-us",
       icon: (
-        <Image
-          alt=""
-          aria-hidden
-          src="/images/usa.svg"
-          width={25}
-          height={25}
-        />
+        <Image alt="english" src="/images/usa.svg" width={30} height={30} />
       ),
     },
     {
       value: "pt",
-      label: "português",
+      label: "pt-br",
       icon: (
         <Image
-          alt=""
-          aria-hidden
+          alt="português"
           src="/images/brazil.svg"
-          width={25}
-          height={25}
+          width={30}
+          height={30}
         />
       ),
     },
@@ -79,8 +72,9 @@ export const SelectLanguage = () => {
                 value={locale.value}
               >
                 <Select.Icon>{locale.icon}</Select.Icon>
-
-                <Select.ItemText>{locale.label}</Select.ItemText>
+                <Select.ItemText>
+                  <span className="text-sm">{locale.label}</span>
+                </Select.ItemText>
               </Select.Item>
             ))}
           </RadixSelectViewportMotion>

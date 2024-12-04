@@ -6,15 +6,21 @@ import { getTranslations } from "next-intl/server";
 import { CommonProps } from "types/CommonProps";
 import { getHomeData } from "services/getHomeData";
 
-export async function generateMetadata({ params: { locale } }: CommonProps) {
-  const t = await getTranslations({ locale, namespace: "home" });
+interface HomeProps {
+  params: Promise<{ locale: "en" }>;
+}
+
+export async function generateMetadata(props: CommonProps) {
+  const { locale } = await props.params;
+  const t = await getTranslations({ locale: locale, namespace: "home" });
 
   return {
     title: t("title"),
   };
 }
 
-export default async function Home({ params }: { params: { locale: "en" } }) {
+export default async function Home(props: HomeProps) {
+  const params = await props.params;
   const { page } = await getHomeData(params.locale);
 
   const introductionProps = {

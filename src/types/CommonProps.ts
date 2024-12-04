@@ -1,7 +1,7 @@
 import { TLocale } from "./TLocale";
 
 export interface CommonProps {
-  params: {
+  params: Promise<{
     locale: TLocale;
-  };
+  }>;
 }
