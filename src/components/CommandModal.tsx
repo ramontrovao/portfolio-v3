@@ -71,9 +71,12 @@ export const CommandModal = ({
       onOpenChange={setModalIsOpen}
       title={tCommandModal("search_something")}
       triggerComponent={
-        <a className="p-4 outline-0 flex justify-center items-center bg-gray-200 text-gray-900 text-2xl rounded-full transition-all duration-300 hover:opacity-80">
+        <button
+          aria-label={tCommandModal("search_something")}
+          className="p-4 outline-0 flex justify-center items-center bg-gray-200 text-gray-900 text-2xl rounded-full transition-all duration-300 hover:opacity-80"
+        >
           <MagnifyingGlass />
-        </a>
+        </button>
       }
     >
       <main className="w-full">

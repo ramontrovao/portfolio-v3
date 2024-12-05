@@ -5,8 +5,10 @@ import { RadixSelectViewportMotion } from "components/RadixSelectViewportMotion"
 import { usePathname, useRouter } from "navigation";
 import Image from "next/image";
 import { useParams } from "next/navigation";
+import { useTranslations } from "next-intl";
 
 export const SelectLanguage = () => {
+  const t = useTranslations("header");
   const pathname = usePathname();
   const router = useRouter();
   const params = useParams();
@@ -48,7 +50,10 @@ export const SelectLanguage = () => {
   return (
     <Select.Root onValueChange={onValueChange} defaultValue={language}>
       <div className="flex flex-col">
-        <Select.Trigger className="p-4 outline-0 flex justify-center items-center bg-gray-200 text-gray-900 text-2xl rounded-full transition-all duration-300 hover:opacity-80">
+        <Select.Trigger
+          aria-label={t("select_language")}
+          className="p-4 outline-0 flex justify-center items-center bg-gray-200 text-gray-900 text-2xl rounded-full transition-all duration-300 hover:opacity-80"
+        >
           <Globe />
         </Select.Trigger>
 

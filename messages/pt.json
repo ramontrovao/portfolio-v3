@@ -1,4 +1,8 @@
 {
+  "header": {
+    "back_to_home": "Voltar ao início",
+    "select_language": "Selecione um idioma"
+  },
   "home": {
     "title": "início",
     "hello": "olá, sou ramon trovão :)",
