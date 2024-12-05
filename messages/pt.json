@@ -1,4 +1,7 @@
 {
+  "header": {
+    "back_to_home": "Voltar ao início"
+  },
   "home": {
     "title": "início",
     "hello": "olá, sou ramon trovão :)",

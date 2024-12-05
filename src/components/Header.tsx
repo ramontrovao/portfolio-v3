@@ -5,8 +5,10 @@ import { ImageMotion } from "./ImageMotion";
 import { ProgressHeader } from "./ProgressHeader";
 import { SelectLanguage } from "components/SelectLanguage";
 import { getHeaderData } from "services/getHeaderData";
+import { getTranslations } from "next-intl/server";
 
 export const Header = async () => {
+  const t = await getTranslations({ namespace: "header" });
   const { page } = await getHeaderData();
 
   const socialMedias = page.info.socialMedias;
@@ -17,7 +19,11 @@ export const Header = async () => {
       <ProgressHeader />
 
       <nav className="max-w-6xl w-full px-4 py-8 m-auto flex justify-between items-center">
-        <Link className="transition-all duration-300 hover:opacity-80" href="/">
+        <Link
+          aria-label={t("back_to_home")}
+          className="transition-all duration-300 hover:opacity-80"
+          href="/"
+        >
           <ImageMotion
             priority
             src="/images/logo.svg"
