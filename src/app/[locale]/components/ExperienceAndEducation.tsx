@@ -51,7 +51,7 @@ export const ExperienceAndEducation = ({
                 rightText={`${sliceFullDate(experience.startDate)} ~ ${
                   experience.endDate
                     ? sliceFullDate(experience.endDate)
-                    : "atual"
+                    : t("current")
                 }`}
                 rightTextSize="md"
                 cardDescription={experience.shortDescription}

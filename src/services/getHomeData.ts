@@ -29,12 +29,6 @@ export const getHomeData = async (locale: string) => {
         endDate
         shortDescription
       }
-      technologies {
-        id
-        name
-        iconSvg
-        startDate
-      }
       info {
         email
         socialMedias {
