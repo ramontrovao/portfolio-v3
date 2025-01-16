@@ -13,7 +13,10 @@ export const getHeaderData = async () => {
         }
         curriculum {
           svg
-          file {
+          filePt {
+            url
+          }
+          fileEn {
             url
           }
         }

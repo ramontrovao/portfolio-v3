@@ -16,11 +16,13 @@ type TData = {
 interface ICommandModalProps {
   socialMedias: TSocialMedia[];
   curriculum: TCurriculum;
+  locale: string
 }
 
 export const CommandModal = ({
   socialMedias,
   curriculum,
+  locale
 }: ICommandModalProps) => {
   const tCommandModal = useTranslations("command_modal");
 
@@ -123,7 +125,7 @@ export const CommandModal = ({
                       <a
                         onClick={handleCloseModal}
                         className="group flex items-center gap-4 text-gray-400 text-lg p-4 w-full border-l-2 border-transparent hover:pl-6 hover:border-gray-400"
-                        href={curriculum.file.url}
+                        href={locale === "en" ? curriculum.fileEn.url : curriculum.filePt.url}
                         target="_blank"
                       >
                         <span

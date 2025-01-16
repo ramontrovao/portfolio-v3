@@ -38,16 +38,18 @@ export const metadata: Metadata = {
 
 export default async function RootLayout({
   children,
+  params: { locale }
 }: {
-  children: React.ReactNode;
+  children: React.ReactNode,
+  params: { locale: string }
 }) {
   const messages = await getMessages();
 
   return (
-    <html lang="pt-BR">
+    <html lang={locale}>
       <body className={poppins.className}>
         <NextIntlClientProvider messages={messages}>
-          <Header />
+          <Header locale={locale} />
           {children}
           <Footer />
         </NextIntlClientProvider>

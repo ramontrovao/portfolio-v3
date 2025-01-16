@@ -7,7 +7,11 @@ import { SelectLanguage } from "components/SelectLanguage";
 import { getHeaderData } from "services/getHeaderData";
 import { getTranslations } from "next-intl/server";
 
-export const Header = async () => {
+interface IHeaderProps {
+  locale: string
+}
+
+export const Header = async ({ locale }: IHeaderProps) => {
   const t = await getTranslations({ namespace: "header" });
   const { page } = await getHeaderData();
 
@@ -36,7 +40,7 @@ export const Header = async () => {
 
         <div className="flex gap-2 justi-center items-center">
           <SelectLanguage />
-          <CommandModal socialMedias={socialMedias} curriculum={curriculum} />
+          <CommandModal locale={locale} socialMedias={socialMedias} curriculum={curriculum} />
         </div>
       </nav>
     </header>

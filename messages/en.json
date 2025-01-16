@@ -26,31 +26,13 @@
     "donate_title": "donate",
     "donate_description": "buy me a coffee or a skin (if you want, obviously). :v",
     "visit_my": "visit my {link}",
-    "access_my_curriculum": "access my curriculum"
-  },
-  "projects": {
-    "title": "projects",
-    "projects_title": "pro-je-cts",
-    "projects_description": "only my greatest and coolest projects",
-    "see_more_projects": "see more projects"
-  },
-  "repositories": {
-    "title": "repositories",
-    "repositories_title": "re-pos-i-tor-ies",
-    "repositories_description": "here are all my public repositories listed =D",
-    "see_more_repositories": "see more repositories",
-    "repository_of": "Repository on github named {name} with author {author}",
-    "no_description": "no description :("
+    "access_my_curriculum": "access my curriculum",
+    "current": "current"
   },
   "links": {
     "title": "links",
     "links_title": "{name} - my links :)",
     "portfolio": "portfolio"
-  },
-  "donate": {
-    "title": "donate",
-    "donate_title": "buy me a coffee or a skin using the pix below =D (brazillian payment method)",
-    "donate_description": "in the name of Ramon Pinheiro Trovão da Silva"
   },
   "footer": {
     "made_with_love": "made with <3 by ramon trovão",

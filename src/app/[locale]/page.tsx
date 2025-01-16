@@ -41,7 +41,7 @@ export default async function Home(props: HomeProps) {
   const contactProps = {
     email: page.info.email,
     phone: page.info.phone,
-    curriculumUrl: page.info.curriculum.file.url,
+    curriculumUrl: params.locale === "en" ? page.info.curriculum.fileEn.url :  page.info.curriculum.filePt.url,
     curriculumSvg: page.info.curriculum.svg,
     socialMedias: page.info.socialMedias,
   };
