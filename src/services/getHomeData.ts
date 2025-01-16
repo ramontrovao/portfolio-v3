@@ -39,7 +39,10 @@ export const getHomeData = async (locale: string) => {
         }
         curriculum {
           svg
-          file {
+          fileEn {
+            url
+          }
+          filePt {
             url
           }
         }
