@@ -1,9 +1,12 @@
 import { THeaderData } from "types/THygraphData";
 import { sendHygraphQuery } from "services/sendHygraphQuery";
 
-export const getHeaderData = async () => {
+export const getHeaderData = async (locale: string) => {
   const query = `query SocialMediasQuery {
-    page(where: {slug: "home"}) {
+    page(
+    where: {slug: "home"}
+    locales: [${locale}]
+    ) {
       info {
         socialMedias {
           id
@@ -13,10 +16,7 @@ export const getHeaderData = async () => {
         }
         curriculum {
           svg
-          filePt {
-            url
-          }
-          fileEn {
+          file {
             url
           }
         }

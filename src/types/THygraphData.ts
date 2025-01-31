@@ -32,10 +32,7 @@ export type TSocialMedia = {
 
 export type TCurriculum = {
   svg: string;
-  filePt: {
-    url: string;
-  };
-  fileEn: {
+  file: {
     url: string;
   };
 };
