@@ -13,7 +13,6 @@ interface IHeaderProps {
 
 export const Header = async ({ locale }: IHeaderProps) => {
   const t = await getTranslations({ namespace: "header" });
-  console.log(locale)
   const { page } = await getHeaderData(locale);
 
   const socialMedias = page.info.socialMedias;
