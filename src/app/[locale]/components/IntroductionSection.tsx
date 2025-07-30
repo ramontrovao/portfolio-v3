@@ -20,6 +20,7 @@ export const IntroductionSection = ({
           <ImageMotion
             src="https://github.com/ramontrovao.png"
             alt=""
+            aria-hidden
             width={350}
             height={350}
             className="max-w-[12.5rem] rounded-full transition-all duration-700 hover:rounded-lg"

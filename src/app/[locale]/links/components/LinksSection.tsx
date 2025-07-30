@@ -19,6 +19,7 @@ export const LinksSection = ({ links, name }: ILinksSectionProps) => {
           <Image
             src="https://github.com/ramontrovao.png"
             alt=""
+            aria-hidden
             width={350}
             height={350}
             className="rounded-full max-w-[12.5rem]"
@@ -41,6 +42,7 @@ export const LinksSection = ({ links, name }: ILinksSectionProps) => {
                 width={350}
                 height={350}
                 alt=""
+                aria-hidden
               />
               <span>{t("portfolio")}</span>
             </Link>

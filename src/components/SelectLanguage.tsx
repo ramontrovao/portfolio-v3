@@ -2,10 +2,10 @@
 import * as Select from "@radix-ui/react-select";
 import { Globe } from "@phosphor-icons/react";
 import { RadixSelectViewportMotion } from "components/RadixSelectViewportMotion";
-import { usePathname, useRouter } from "navigation";
 import Image from "next/image";
 import { useParams } from "next/navigation";
 import { useTranslations } from "next-intl";
+import { usePathname, useRouter } from "i18n/navigation";
 
 export const SelectLanguage = () => {
   const t = useTranslations("header");

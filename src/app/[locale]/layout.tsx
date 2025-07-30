@@ -6,8 +6,9 @@ import { Poppins } from "next/font/google";
 
 import { Header } from "components/Header";
 import { Footer } from "components/Footer";
-import { getLocale, getMessages } from "next-intl/server";
-import { NextIntlClientProvider } from "next-intl";
+import { hasLocale, NextIntlClientProvider } from "next-intl";
+import { routing } from "i18n/routing";
+import { notFound } from "next/navigation";
 
 const poppins = Poppins({ subsets: ["latin"], weight: ["400", "700"] });
 export const metadata: Metadata = {
@@ -36,19 +37,22 @@ export const metadata: Metadata = {
   },
 };
 
-export default async function RootLayout({
-  children
+export default async function LocaleLayout({
+  children,
+  params,
 }: {
-  children: React.ReactNode,
+  children: React.ReactNode;
+  params: Promise<{ locale: string }>;
 }) {
-  const locale = await getLocale()
-  const messages = await getMessages();
-  
+  const { locale } = await params;
+  if (!hasLocale(routing.locales, locale)) {
+    notFound();
+  }
 
   return (
     <html lang={locale}>
       <body className={poppins.className}>
-        <NextIntlClientProvider messages={messages}>
+        <NextIntlClientProvider>
           <Header locale={locale} />
           {children}
           <Footer />

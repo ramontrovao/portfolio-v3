@@ -5,11 +5,9 @@ import { useTranslations } from "next-intl";
 import { getTranslations } from "next-intl/server";
 import { CommonProps } from "types/CommonProps";
 
-export const dynamic = "force-dynamic";
-
 export async function generateMetadata(props: CommonProps) {
   const { locale } = await props.params;
-  const t = await getTranslations({ locale, namespace: "not_found" });
+  const t = await getTranslations("not_found");
 
   return {
     title: t("title"),

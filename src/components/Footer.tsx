@@ -19,6 +19,7 @@ export const Footer = () => {
             className="max-w-[2rem]"
             src="/images/logo.svg"
             alt=""
+            aria-hidden
             width={400}
             height={400}
           />

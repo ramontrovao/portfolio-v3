@@ -48,6 +48,7 @@ export const Project = ({
         width={1920}
         height={1080}
         alt=""
+        aria-hidden
       />
     </motion.a>
   );

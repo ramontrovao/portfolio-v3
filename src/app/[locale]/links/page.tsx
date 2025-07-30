@@ -5,7 +5,7 @@ import { getLinksData } from "services/getLinksData";
 
 export async function generateMetadata(props: CommonProps) {
   const { locale } = await props.params;
-  const t = await getTranslations({ locale, namespace: "links" });
+  const t = await getTranslations("links");
 
   return {
     title: t("title"),

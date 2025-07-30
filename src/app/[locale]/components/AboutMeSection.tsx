@@ -30,6 +30,7 @@ export const AboutMeSection = ({ image, text }: IAboutMeProps) => {
             width={500}
             height={500}
             alt=""
+            aria-hidden
             animate={{
               borderRadius: ["30%", "10%", "20%", "25%", "30%"],
             }}

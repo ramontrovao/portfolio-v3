@@ -8,11 +8,11 @@ import { getHeaderData } from "services/getHeaderData";
 import { getTranslations } from "next-intl/server";
 
 interface IHeaderProps {
-  locale: string
+  locale: string;
 }
 
 export const Header = async ({ locale }: IHeaderProps) => {
-  const t = await getTranslations({ namespace: "header" });
+  const t = await getTranslations("header");
   const { page } = await getHeaderData(locale);
 
   const socialMedias = page.info.socialMedias;
@@ -32,6 +32,7 @@ export const Header = async ({ locale }: IHeaderProps) => {
             priority
             src="/images/logo.svg"
             alt=""
+            aria-hidden
             width={400}
             height={650}
             className="max-w-[2rem]"
@@ -40,7 +41,11 @@ export const Header = async ({ locale }: IHeaderProps) => {
 
         <div className="flex gap-2 justi-center items-center">
           <SelectLanguage />
-          <CommandModal locale={locale} socialMedias={socialMedias} curriculum={curriculum} />
+          <CommandModal
+            locale={locale}
+            socialMedias={socialMedias}
+            curriculum={curriculum}
+          />
         </div>
       </nav>
     </header>

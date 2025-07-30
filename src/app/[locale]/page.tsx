@@ -12,7 +12,7 @@ interface HomeProps {
 
 export async function generateMetadata(props: CommonProps) {
   const { locale } = await props.params;
-  const t = await getTranslations({ locale: locale, namespace: "home" });
+  const t = await getTranslations("home");
 
   return {
     title: t("title"),
