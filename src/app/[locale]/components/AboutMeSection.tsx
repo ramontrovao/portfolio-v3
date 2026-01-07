@@ -37,7 +37,7 @@ export const AboutMeSection = ({ image, text }: IAboutMeProps) => {
             transition={{
               repeat: Infinity,
               times: [0, 0.2, 0.5, 0.8, 1],
-              duration: 2,
+              duration: 5,
             }}
           />
 

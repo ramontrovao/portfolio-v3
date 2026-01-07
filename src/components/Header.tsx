@@ -1,10 +1,8 @@
 import Link from "next/link";
 
-import { CommandModal } from "./CommandModal";
 import { ImageMotion } from "./ImageMotion";
 import { ProgressHeader } from "./ProgressHeader";
 import { SelectLanguage } from "components/SelectLanguage";
-import { getHeaderData } from "services/getHeaderData";
 import { getTranslations } from "next-intl/server";
 
 interface IHeaderProps {
@@ -13,10 +11,6 @@ interface IHeaderProps {
 
 export const Header = async ({ locale }: IHeaderProps) => {
   const t = await getTranslations("header");
-  const { page } = await getHeaderData(locale);
-
-  const socialMedias = page.info.socialMedias;
-  const curriculum = page.info.curriculum;
 
   return (
     <header className="z-40 fixed w-full flex bg-transparent">
@@ -41,11 +35,6 @@ export const Header = async ({ locale }: IHeaderProps) => {
 
         <div className="flex gap-2 justi-center items-center">
           <SelectLanguage />
-          <CommandModal
-            locale={locale}
-            socialMedias={socialMedias}
-            curriculum={curriculum}
-          />
         </div>
       </nav>
     </header>

@@ -15,7 +15,7 @@ export const IntroductionSection = ({
 
   return (
     <section className="bg-zinc-950 w-full">
-      <div className="max-w-6xl min-h-screen w-full m-auto px-4 py-32 flex gap-8 flex-col justify-center items-center">
+      <div className="bg-zinc-950 max-w-6xl min-h-screen w-full m-auto px-4 py-32 flex gap-8 flex-col justify-center items-center">
         <div className="flex justify-center items-center flex-col gap-4">
           <ImageMotion
             src="https://github.com/ramontrovao.png"
